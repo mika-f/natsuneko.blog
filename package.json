@@ -6,21 +6,32 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "convert:mt": "ts-node bin/mt2md.ts"
+    "convert:mt": "ts-node bin/mt2md.ts",
+    "convert:rd": "ts-node bin/redirects.ts"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
     "next": "12.0.9",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-markdown": "^8.0.0",
+    "react-medium-image-zoom": "^4.3.5",
+    "react-syntax-highlighter": "^15.4.5",
+    "rehype-raw": "^6.1.1",
+    "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
     "@types/node": "^17.0.12",
     "@types/react": "^17.0.38",
+    "@types/react-syntax-highlighter": "^13.5.2",
     "@types/turndown": "^5.0.1",
     "@types/yargs": "^17.0.8",
+    "autoprefixer": "^10.4.2",
     "eslint": "8.7.0",
     "eslint-config-next": "12.0.9",
     "mt-parser": "^1.0.0-alpha.6",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.17",
     "ts-node": "^10.4.0",
     "turndown": "^7.1.1",
     "turndown-plugin-gfm": "^1.0.2",

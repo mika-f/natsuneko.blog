@@ -1,0 +1,60 @@
+import React from "react";
+import { GetStaticProps } from "next";
+import Head from "next/head";
+import InternalLink from "next/link";
+
+import { getEntries } from "../utils/fs";
+
+type Entry = {
+  title: string;
+  date: string;
+  basename: string;
+};
+
+type Props = {
+  entries: Entry[];
+};
+
+const getStaticProps: GetStaticProps<Props, {}> = async ({}) => {
+  const entries = await getEntries();
+
+  return {
+    props: {
+      entries: entries
+        .map((w) => {
+          return {
+            title: w.title,
+            date: w.date,
+            basename: w.basename,
+          } as Entry;
+        })
+        .reverse(),
+    },
+  };
+};
+
+const Home: React.VFC<Props> = ({ entries }) => {
+  return (
+    <div className="w-full">
+      <Head>
+        <title>なつねこメモ</title>
+      </Head>
+      {entries.map((w) => {
+        return (
+          <div key={w.basename} className="mt-2 mb-12">
+            {w.date}
+            <h2 className="mt-1">
+              <InternalLink href={`/entry/${w.basename}`}>
+                <a className="underline text-xl">{w.title}</a>
+              </InternalLink>
+            </h2>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+export { getStaticProps };
+
+export default Home;
