@@ -48,14 +48,7 @@ const Markdown: React.VFC<Props> = ({ markdown }) => {
   };
 
   const img: CallbackFunc<"img"> = (props) => {
-    return (
-      <ZoomableImage
-        src={props.src}
-        alt={props.alt}
-        width={props.width}
-        height={props.height}
-      />
-    );
+    return <ZoomableImage src={props.src} alt={props.alt} />;
   };
 
   const figure: CallbackFunc<"figure"> = (props) => {
@@ -67,8 +60,6 @@ const Markdown: React.VFC<Props> = ({ markdown }) => {
       <ZoomableFigure
         src={img.props.src}
         alt={img.props.alt}
-        width={img.props.width}
-        height={img.props.height}
         caption={String(caption.props.children)}
       />
     );
