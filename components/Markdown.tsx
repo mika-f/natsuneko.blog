@@ -65,13 +65,17 @@ const Markdown: React.VFC<Props> = ({ markdown }) => {
     );
   };
 
+  const p: CallbackFunc<"p"> = (props) => {
+    return <p className="my-4">{props.children}</p>;
+  };
+
   const ul: UnorderedListComponent = ({ children }) => {
     return <ul className="list-disc pl-8 my-4">{children}</ul>;
   };
 
   return (
     <ReactMarkdown
-      components={{ a, code, figure, img, ul }}
+      components={{ a, code, figure, img, p, ul }}
       rehypePlugins={[Raw]}
       remarkPlugins={[GitHub]}
     >
