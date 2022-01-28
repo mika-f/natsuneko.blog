@@ -60,7 +60,7 @@ const Markdown: React.VFC<Props> = ({ markdown }) => {
       <ZoomableFigure
         src={img.props.src}
         alt={img.props.alt}
-        caption={String(caption.props.children)}
+        caption={caption ? String(caption.props.children) : undefined}
       />
     );
   };

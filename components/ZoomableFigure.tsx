@@ -16,8 +16,6 @@ const ZoomableFigure: React.VFC<Props> = ({ src, alt, caption }) => {
   const width = url.searchParams.get("width") ?? "500px";
   const height = url.searchParams.get("height") ?? "100%";
 
-  console.log(source);
-
   return (
     <Zoom>
       <figure className="w-full my-4 text-center">
@@ -28,7 +26,7 @@ const ZoomableFigure: React.VFC<Props> = ({ src, alt, caption }) => {
           height={height}
           width={width}
         />
-        {caption && <figcaption>{caption}</figcaption>}
+        {caption ? <figcaption>{caption}</figcaption> : <></>}
       </figure>
     </Zoom>
   );
