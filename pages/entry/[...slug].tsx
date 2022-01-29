@@ -9,6 +9,7 @@ import {
   getRedirects,
 } from "../../utils/fs";
 import Article from "../../components/Article";
+import OGP from "../../components/OGP";
 
 type PathParams = {
   slug: [string, string, string, string];
@@ -19,6 +20,7 @@ type Props = {
   date: string;
   categories: string[];
   content: string;
+  slug: string;
 };
 
 const getStaticPaths: GetStaticPaths<PathParams> = async () => {
@@ -65,16 +67,24 @@ const getStaticProps: GetStaticProps<Props, PathParams> = async ({
   }
 
   return {
-    props: getContent(`${year}${month}${day}`),
+    props: { ...getContent(`${year}${month}${day}`), slug },
   };
 };
 
-const Entry: React.VFC<Props> = ({ title, date, categories, content }) => {
+const Entry: React.VFC<Props> = ({
+  title,
+  date,
+  categories,
+  content,
+  slug,
+}) => {
+  const url = `https://natsuneko.blog/entry/${date}/${slug}`;
   return (
     <div className="w-full">
       <Head>
         <title>{title} | なつねこメモ</title>
       </Head>
+      <OGP title={`${title} | なつねこメモ`} url={url} />
       <Article
         title={title}
         date={date}
