@@ -34,7 +34,7 @@ const generateRssFeed = async (): Promise<void> => {
   });
 
   const entries = await getEntries(20);
-  for (const entry of entries) {
+  for (const entry of entries.reverse()) {
     feed.addItem({
       title: entry.title,
       description: "no description provided",
