@@ -1,12 +1,12 @@
 import { writeFile } from "fs/promises";
 import { GetStaticProps } from "next";
 import { Feed as RssFeed } from "feed";
-import marked from "marked";
+import { marked } from "marked";
 
 import { getEntries } from "../utils/fs";
 
 const generateRssFeed = async (): Promise<void> => {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "";
+  const baseUrl = "https://natsuneko.blog";
   const date = new Date();
   const author = {
     name: "Natsuneko",
@@ -33,7 +33,7 @@ const generateRssFeed = async (): Promise<void> => {
     },
   });
 
-  const entries = await getEntries();
+  const entries = await getEntries(20);
   for (const entry of entries) {
     feed.addItem({
       title: entry.title,
@@ -59,5 +59,7 @@ const getStaticProps: GetStaticProps = async () => {
 const Feed: React.VFC = () => {
   return <></>;
 };
+
+export { getStaticProps };
 
 export default Feed;
