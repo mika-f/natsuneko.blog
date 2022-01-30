@@ -21,20 +21,15 @@ const OGP: React.VFC<Props> = ({
   return (
     <>
       <Head>
-        {description ? (
-          <meta name="description" content={description} />
-        ) : (
-          <></>
-        )}
+        <meta
+          property="description"
+          content={description ?? "no description provided"}
+        />
         <meta property="og:url" content={url} />
         <meta property="og:title" content={title} />
-        <meta property="og:site_name" content={title} />
-        {description ? (
-          <meta property="og:description" content={description} />
-        ) : (
-          <></>
-        )}
-        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="なつねこメモ" />
+        <meta property="og:type" content="article" />
+        <meta property="twitter:card" content="summary" />
         {image ? <meta property="og:image" content={image} /> : <></>}
         {imageWidth ? (
           <meta property="og:image:width" content={String(imageWidth)} />
