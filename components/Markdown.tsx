@@ -6,6 +6,7 @@ import {
   ComponentPropsWithoutRef,
   ReactMarkdownProps,
   UnorderedListComponent,
+  TableCellComponent,
 } from "react-markdown/lib/ast-to-react";
 import Raw from "rehype-raw";
 import GitHub from "remark-gfm";
@@ -13,6 +14,10 @@ import GitHub from "remark-gfm";
 import ExternalLink from "./ExternalLink";
 import InlineCode from "./InlineCode";
 import SyntaxHighlighter from "./SyntaxHighlighter";
+import Table from "./Table";
+import TableData from "./TableData";
+import TableHead from "./TableHead";
+import TableHeader from "./TableHeader";
 import ZoomableFigure from "./ZoomableFigure";
 import ZoomableImage from "./ZoomableImage";
 
@@ -69,13 +74,40 @@ const Markdown: React.VFC<Props> = ({ markdown }) => {
     return <p className="my-4">{props.children}</p>;
   };
 
+  const td: TableCellComponent = (props) => {
+    return (
+      <TableData align={props.node.properties.align as any}>
+        {props.children}
+      </TableData>
+    );
+  };
+
+  const th: TableCellComponent = (props) => {
+    return (
+      <TableHeader align={props.node.properties.align as any}>
+        {props.children}
+      </TableHeader>
+    );
+  };
+
   const ul: UnorderedListComponent = ({ children }) => {
     return <ul className="list-disc pl-8 my-4">{children}</ul>;
   };
 
   return (
     <ReactMarkdown
-      components={{ a, code, figure, img, p, ul }}
+      components={{
+        a,
+        code,
+        figure,
+        img,
+        p,
+        table: Table,
+        thead: TableHead,
+        th,
+        td,
+        ul,
+      }}
       rehypePlugins={[Raw]}
       remarkPlugins={[GitHub]}
     >
