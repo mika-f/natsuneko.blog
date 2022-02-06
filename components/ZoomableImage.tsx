@@ -12,12 +12,12 @@ type Props = {
 const ZoomableImage: React.VFC<Props> = ({ src, alt }) => {
   const url = new URL(src);
   const source = `${url.protocol}//${url.host}${url.pathname}`;
-  const width = url.searchParams["width"] ?? "500px";
-  const height = url.searchParams["height"] ?? "100%";
+  const width = url.searchParams.get("width") ?? "500px";
+  const height = url.searchParams.get("height") ?? "100%";
 
   return (
     <Zoom>
-      <div className="w-full my-4 text-center">
+      <div className="w-full block my-4 text-center">
         <Image
           src={source}
           alt={alt ?? "image"}
