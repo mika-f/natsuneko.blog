@@ -9,7 +9,9 @@ import {
   TableCellComponent,
 } from "react-markdown/lib/ast-to-react";
 import Raw from "rehype-raw";
+import MathJax from "rehype-mathjax";
 import GitHub from "remark-gfm";
+import Math from "remark-math";
 
 import ExternalLink from "./ExternalLink";
 import InlineCode from "./InlineCode";
@@ -108,8 +110,8 @@ const Markdown: React.VFC<Props> = ({ markdown }) => {
         td,
         ul,
       }}
-      rehypePlugins={[Raw]}
-      remarkPlugins={[GitHub]}
+      rehypePlugins={[MathJax, Raw]}
+      remarkPlugins={[GitHub, Math]}
     >
       {markdown}
     </ReactMarkdown>
