@@ -37,11 +37,6 @@ pre {
   margin: 0 !important;
 }
 
-[data-rmiz-wrap="visible"],
-[data-rmiz-wrap="hidden"] {
-  width: 100%;
-}
-
 figure {
   display: flex;
   flex-flow: column;

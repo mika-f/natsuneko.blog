@@ -17,7 +17,7 @@ const ZoomableFigure: React.VFC<Props> = ({ src, alt, caption }) => {
   const height = url.searchParams.get("height") ?? "100%";
 
   return (
-    <Zoom>
+    <Zoom wrapStyle={{ width: "100%" }}>
       <figure className="w-full my-4 text-center">
         <Image
           src={source}
