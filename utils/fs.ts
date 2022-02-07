@@ -1,7 +1,9 @@
-import { fdatasyncSync, readFileSync } from "fs";
+import { readFileSync } from "fs";
 import fs from "fs/promises";
 import { join } from "path";
 import matter from "gray-matter";
+import { remark } from "remark";
+import strip from "strip-markdown";
 
 const CONTENTS_DIR = join(process.cwd(), "contents");
 
@@ -11,6 +13,7 @@ type Content = {
   basename: string;
   categories: string[];
   content: string;
+  summary: string;
 };
 
 type Redirect = {
@@ -46,12 +49,23 @@ const getContent = (path: string, extension = ".md"): Content => {
   );
   const { data, content } = matter(fileContents);
 
+  const getSummarizedText = (markdown: string) => {
+    const text = remark().use(strip).processSync(markdown).toString();
+    const firstSentence = text.indexOf("。");
+    if (firstSentence <= 120) {
+      return text.substring(0, firstSentence + 1);
+    }
+
+    return text.substring(0, 120) + "...";
+  };
+
   return {
     title: data.title,
     date: data.date,
     basename: data.basename,
     categories: data.categories ?? [],
     content,
+    summary: data.summary ?? getSummarizedText(content),
   };
 };
 

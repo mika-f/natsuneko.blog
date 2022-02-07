@@ -27,6 +27,10 @@ const OGP: React.VFC<Props> = ({
         />
         <meta property="og:url" content={url} />
         <meta property="og:title" content={title} />
+        <meta
+          property="og:description"
+          content={description ?? "no description provided"}
+        />
         <meta property="og:site_name" content="なつねこメモ" />
         <meta property="og:type" content="article" />
         <meta property="twitter:card" content="summary" />

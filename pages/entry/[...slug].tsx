@@ -21,6 +21,7 @@ type Props = {
   categories: string[];
   content: string;
   slug: string;
+  summary: string;
 };
 
 const getStaticPaths: GetStaticPaths<PathParams> = async () => {
@@ -77,6 +78,7 @@ const Entry: React.VFC<Props> = ({
   categories,
   content,
   slug,
+  summary,
 }) => {
   const url = `https://natsuneko.blog/entry/${date}/${slug}`;
   return (
@@ -84,7 +86,7 @@ const Entry: React.VFC<Props> = ({
       <Head>
         <title>{title} | なつねこメモ</title>
       </Head>
-      <OGP title={`${title} | なつねこメモ`} url={url} />
+      <OGP title={`${title} | なつねこメモ`} description={summary} url={url} />
       <Article
         title={title}
         date={date}
