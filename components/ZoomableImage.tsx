@@ -17,7 +17,7 @@ const ZoomableImage: React.VFC<Props> = ({ src, alt }) => {
 
   return (
     <Zoom>
-      <div className="w-full block my-4 text-center">
+      <div className="w-full block my-4">
         <Image
           src={source}
           alt={alt ?? "image"}
