@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "next-remote-watch ./contents/",
     "build": "next build",
+    "postbuild": "next-sitemap --config sitemap.config.js",
     "start": "next start",
     "lint": "next lint",
     "convert:mt": "ts-node bin/mt2md.ts",
@@ -37,6 +38,7 @@
     "eslint-config-next": "12.0.9",
     "mt-parser": "^1.0.0-alpha.6",
     "next-remote-watch": "^1.0.0",
+    "next-sitemap": "^2.1.13",
     "postcss": "^8.4.5",
     "tailwindcss": "^3.0.17",
     "ts-node": "^10.4.0",
