@@ -4,6 +4,7 @@ import {
   CodeComponent,
   ComponentType,
   ComponentPropsWithoutRef,
+  OrderedListComponent,
   ReactMarkdownProps,
   UnorderedListComponent,
   TableCellComponent,
@@ -96,6 +97,10 @@ const Markdown: React.VFC<Props> = ({ markdown }) => {
     return <ul className="list-disc pl-8 my-4">{children}</ul>;
   };
 
+  const ol: OrderedListComponent = ({ children }) => {
+    return <ol className="list-decimal pl-8 my-4">{children}</ol>;
+  };
+
   return (
     <ReactMarkdown
       components={{
@@ -103,6 +108,7 @@ const Markdown: React.VFC<Props> = ({ markdown }) => {
         code,
         figure,
         img,
+        ol,
         p,
         table: Table,
         thead: TableHead,
