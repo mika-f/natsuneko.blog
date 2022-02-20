@@ -18,6 +18,9 @@ const Header: React.VFC<{}> = () => {
         <div className="text-xl underline mr-2">
           <InternalLink href="/links">リンク集</InternalLink>
         </div>
+        <div className="text-xl underline mr-2">
+          <InternalLink href="/categories">カテゴリー一覧</InternalLink>
+        </div>
         <div className="text-xl underline mx-2">
           <ExternalLink href="https://www.google.com/search?q=site:www.natsuneko.blog">
             検索
