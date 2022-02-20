@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 import { allArticles, allRedirects } from "contentlayer/generated";
-import type { Article as Entry } from "contentlayer/generated";
+import type { Article as Entry, Redirect } from "contentlayer/generated";
 
 import Article from "../../components/Article";
 import OGP from "../../components/OGP";
@@ -14,6 +15,7 @@ type PathParams = {
 
 type Props = {
   entry: Entry;
+  redirect: Redirect;
   slug: string;
 };
 
@@ -48,29 +50,48 @@ const getStaticProps: GetStaticProps<Props, PathParams> = async ({
   params,
 }) => {
   const [year, month, day, slug] = params.slug;
-  const redirect = allRedirects[0].redirects.find(
-    (w) => w.from === `${year}/${month}/${day}/${slug}`
-  );
-  if (redirect) {
-    return {
-      redirect: {
-        permanent: true,
-        destination: `/entry/${redirect.to}`,
-      },
-    };
-  }
-
-  const entry = allArticles.find(
-    (w) => w.basename === `${year}/${month}/${day}/${slug}`
-  );
+  const redirect =
+    allRedirects[0].redirects.find(
+      (w) => w.from === `${year}/${month}/${day}/${slug}`
+    ) ?? null;
+  const entry =
+    allArticles.find((w) => w.basename === `${year}/${month}/${day}/${slug}`) ??
+    null;
 
   return {
-    props: { entry, slug },
+    props: { entry, slug, redirect },
   };
 };
 
-const Entry: React.VFC<Props> = ({ entry, slug }) => {
-  const url = `https://natsuneko.blog/entry/${entry.date}/${slug}`;
+const Entry: React.VFC<Props> = ({ entry, redirect, slug }) => {
+  const url = redirect
+    ? `https://natsuneko.blog/${redirect.from}`
+    : `https://natsuneko.blog/entry/${entry.date}/${slug}`;
+  const router = useRouter();
+
+  useEffect(() => {
+    if (redirect) router.replace(redirect.to);
+  }, [redirect, router]);
+
+  if (redirect) {
+    return (
+      <div className="w-full">
+        <Head>
+          <title>Redirecting... | なつねこメモ</title>
+        </Head>
+        <div
+          className="flex justify-center items-center w-full"
+          style={{ height: "calc(100vh - 65px - 212px)" }}
+        >
+          <div className="flex justify-center items-center mr-4 pr-4 h-16 border-r">
+            <div className="text-4xl">301</div>
+          </div>
+          <div>This page moved permanently</div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="w-full">
       <Head>
