@@ -17,13 +17,17 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "paths": {
+      "contentlayer/generated": ["./.contentlayer/generated"]
+    }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "bin/mt2md.mts"
+    "bin/mt2md.mts",
+    ".contentlayer/generated"
   ],
   "exclude": [
     "node_modules"

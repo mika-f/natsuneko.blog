@@ -2,8 +2,7 @@ import React from "react";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import InternalLink from "next/link";
-
-import { getEntries } from "../utils/fs";
+import { allArticles } from "contentlayer/generated";
 
 type Entry = {
   title: string;
@@ -16,11 +15,9 @@ type Props = {
 };
 
 const getStaticProps: GetStaticProps<Props, {}> = async ({}) => {
-  const entries = await getEntries();
-
   return {
     props: {
-      entries: entries
+      entries: allArticles
         .map((w) => {
           return {
             title: w.title,

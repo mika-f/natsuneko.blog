@@ -2,12 +2,9 @@ import React from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 
-import {
-  getContent,
-  getEntries,
-  getRedirect,
-  getRedirects,
-} from "../../utils/fs";
+import { allArticles, allRedirects } from "contentlayer/generated";
+import type { Article as Entry } from "contentlayer/generated";
+
 import Article from "../../components/Article";
 import OGP from "../../components/OGP";
 
@@ -16,17 +13,12 @@ type PathParams = {
 };
 
 type Props = {
-  title: string;
-  date: string;
-  categories: string[];
-  content: string;
+  entry: Entry;
   slug: string;
-  summary: string;
 };
 
 const getStaticPaths: GetStaticPaths<PathParams> = async () => {
-  const entries = await getEntries();
-  const paths = entries.map((w) => {
+  const paths = allArticles.map((w) => {
     const [year, month, day, slug] = w.basename.split("/");
 
     return {
@@ -36,8 +28,7 @@ const getStaticPaths: GetStaticPaths<PathParams> = async () => {
     };
   });
 
-  const redirects = await getRedirects();
-  redirects.forEach((w) => {
+  allRedirects[0].redirects.forEach((w) => {
     const [year, month, day, slug] = w.from.split("/");
 
     paths.push({
@@ -57,7 +48,9 @@ const getStaticProps: GetStaticProps<Props, PathParams> = async ({
   params,
 }) => {
   const [year, month, day, slug] = params.slug;
-  const redirect = await getRedirect(`${year}${month}${day}${slug}`);
+  const redirect = allRedirects[0].redirects.find(
+    (w) => w.from === `${year}${month}${day}/${slug}`
+  );
   if (redirect) {
     return {
       redirect: {
@@ -67,31 +60,31 @@ const getStaticProps: GetStaticProps<Props, PathParams> = async ({
     };
   }
 
+  const entry = allArticles.find(
+    (w) => w.basename === `${year}/${month}/${day}/${slug}`
+  );
   return {
-    props: { ...getContent(`${year}${month}${day}`), slug },
+    props: { entry, slug },
   };
 };
 
-const Entry: React.VFC<Props> = ({
-  title,
-  date,
-  categories,
-  content,
-  slug,
-  summary,
-}) => {
-  const url = `https://natsuneko.blog/entry/${date}/${slug}`;
+const Entry: React.VFC<Props> = ({ entry, slug }) => {
+  const url = `https://natsuneko.blog/entry/${entry.date}/${slug}`;
   return (
     <div className="w-full">
       <Head>
-        <title>{title} | なつねこメモ</title>
+        <title>{entry.title} | なつねこメモ</title>
       </Head>
-      <OGP title={`${title} | なつねこメモ`} description={summary} url={url} />
+      <OGP
+        title={`${entry.title} | なつねこメモ`}
+        description={entry.summary}
+        url={url}
+      />
       <Article
-        title={title}
-        date={date}
-        categories={categories}
-        content={content}
+        title={entry.title}
+        date={entry.date}
+        categories={entry.categories}
+        content={entry.body.raw}
       />
     </div>
   );
