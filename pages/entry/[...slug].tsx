@@ -49,7 +49,7 @@ const getStaticProps: GetStaticProps<Props, PathParams> = async ({
 }) => {
   const [year, month, day, slug] = params.slug;
   const redirect = allRedirects[0].redirects.find(
-    (w) => w.from === `${year}${month}${day}/${slug}`
+    (w) => w.from === `${year}${month}${day}${slug}`
   );
   if (redirect) {
     return {
