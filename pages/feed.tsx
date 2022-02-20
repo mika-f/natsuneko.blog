@@ -2,8 +2,7 @@ import { writeFile } from "fs/promises";
 import { GetStaticProps } from "next";
 import { Feed as RssFeed } from "feed";
 import { marked } from "marked";
-
-import { getEntries } from "../utils/fs";
+import { allArticles } from "contentlayer/generated";
 
 const generateRssFeed = async (): Promise<void> => {
   const baseUrl = "https://natsuneko.blog";
@@ -33,14 +32,14 @@ const generateRssFeed = async (): Promise<void> => {
     },
   });
 
-  const entries = await getEntries(20);
+  const entries = allArticles.slice(-20);
   for (const entry of entries.reverse()) {
     feed.addItem({
       title: entry.title,
       description: "no description provided",
       id: `${baseUrl}/entry/${entry.basename}`,
       link: `${baseUrl}/entry/${entry.basename}`,
-      content: marked(entry.content),
+      content: marked(entry.body.raw),
       date: new Date(entry.date),
     });
   }
