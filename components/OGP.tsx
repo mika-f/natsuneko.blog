@@ -17,6 +17,12 @@ const OGP: React.VFC<Props> = ({ title, description, url }) => {
         openGraph={{
           url,
           title,
+          images: [
+            {
+              url: "https://assets.natsuneko.blog/media/natsuneko.png",
+              alt: title,
+            },
+          ],
           locale: "ja_JP",
           site_name: "なつねこメモ",
           type: "website",
