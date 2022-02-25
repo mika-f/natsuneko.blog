@@ -1,52 +1,32 @@
 import React from "react";
-import Head from "next/head";
+import { NextSeo } from "next-seo";
 
 type Props = {
   title: string;
   description?: string;
   url: string;
-  image?: string;
-  imageHeight?: number;
-  imageWidth?: number;
 };
 
-const OGP: React.VFC<Props> = ({
-  title,
-  description,
-  url,
-  image,
-  imageWidth,
-  imageHeight,
-}) => {
+const OGP: React.VFC<Props> = ({ title, description, url }) => {
   return (
     <>
-      <Head>
-        <meta
-          property="description"
-          content={description ?? "no description provided"}
-        />
-        <meta property="og:url" content={url} />
-        <meta property="og:title" content={title} />
-        <meta
-          property="og:description"
-          content={description ?? "no description provided"}
-        />
-        <meta property="og:site_name" content="なつねこメモ" />
-        <meta property="og:type" content="article" />
-        <meta property="twitter:card" content="summary" />
-        {image ? <meta property="og:image" content={image} /> : <></>}
-        {imageWidth ? (
-          <meta property="og:image:width" content={String(imageWidth)} />
-        ) : (
-          <></>
-        )}
-        {imageHeight ? (
-          <meta property="og:image:height" content={String(imageHeight)} />
-        ) : (
-          <></>
-        )}
-        <link rel="canonical" href={url} />
-      </Head>
+      <NextSeo
+        title={title}
+        canonical={url}
+        description={description ?? "no description provided"}
+        openGraph={{
+          url,
+          title,
+          locale: "ja_JP",
+          site_name: "なつねこメモ",
+          type: "website",
+        }}
+        twitter={{
+          handle: "@6jz",
+          site: "@6jz",
+          cardType: "summary",
+        }}
+      />
     </>
   );
 };

@@ -1,9 +1,10 @@
 import React from "react";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import InternalLink from "next/link";
 
 import { allArticles } from "contentlayer/generated";
+import OGP from "../components/OGP";
 
 type PathParams = {
   slug: string;
@@ -42,27 +43,30 @@ const Categories: React.VFC<PageProps> = ({ categories }) => {
   });
 
   return (
-    <div className="w-full">
-      <Head>
-        <title>カテゴリー一覧 | なつねこメモ</title>
-      </Head>
-      <h2 className="text-2xl font-bold mt-2 mb-4">カテゴリー一覧</h2>
-      <ul className="list-disc pl-6">
-        {rankedCategories.map((w) => {
-          return (
-            <li key={w} className="my-2">
-              <h2 className="mt-1">
-                <InternalLink href={`/category/${encodeURIComponent(w)}`}>
-                  <a className="underline text-xl">
-                    {w} ({categories[w]})
-                  </a>
-                </InternalLink>
-              </h2>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+    <>
+      <OGP
+        title="カテゴリー一覧 | なつねこメモ"
+        url="https://www.natsuneko.blog/categories"
+      />
+      <div className="w-full">
+        <h2 className="text-2xl font-bold mt-2 mb-4">カテゴリー一覧</h2>
+        <ul className="list-disc pl-6">
+          {rankedCategories.map((w) => {
+            return (
+              <li key={w} className="my-2">
+                <h2 className="mt-1">
+                  <InternalLink href={`/category/${encodeURIComponent(w)}`}>
+                    <a className="underline text-xl">
+                      {w} ({categories[w]})
+                    </a>
+                  </InternalLink>
+                </h2>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </>
   );
 };
 

@@ -5,6 +5,8 @@ import InternalLink from "next/link";
 
 import { allArticles } from "contentlayer/generated";
 
+import OGP from "../../components/OGP";
+
 type PathParams = {
   slug: string;
 };
@@ -54,26 +56,29 @@ const getStaticProps: GetStaticProps<PageProps, PathParams> = ({ params }) => {
 
 const Category: React.VFC<PageProps> = ({ category, entries }) => {
   return (
-    <div className="w-full">
-      <Head>
-        <title>{category} | なつねこメモ</title>
-      </Head>
-      <h2 className="text-3xl font-bold mt-2 mb-4">
-        カテゴリー: {category} ({entries.length})
-      </h2>
-      {entries.map((w) => {
-        return (
-          <div key={w.basename} className="mt-2 mb-12">
-            {w.date}
-            <h2 className="mt-1">
-              <InternalLink href={`/entry/${w.basename}`}>
-                <a className="underline text-xl">{w.title}</a>
-              </InternalLink>
-            </h2>
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <OGP
+        title={`カテゴリー: ${category} | なつねこメモ`}
+        url="https://www.natsuneko.blog/categories"
+      />
+      <div className="w-full">
+        <h2 className="text-3xl font-bold mt-2 mb-4">
+          カテゴリー: {category} ({entries.length})
+        </h2>
+        {entries.map((w) => {
+          return (
+            <div key={w.basename} className="mt-2 mb-12">
+              {w.date}
+              <h2 className="mt-1">
+                <InternalLink href={`/entry/${w.basename}`}>
+                  <a className="underline text-xl">{w.title}</a>
+                </InternalLink>
+              </h2>
+            </div>
+          );
+        })}
+      </div>
+    </>
   );
 };
 

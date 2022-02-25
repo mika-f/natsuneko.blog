@@ -1,4 +1,6 @@
 import React from "react";
+import OGP from "../components/OGP";
+
 import ExternalLink from "../components/ExternalLink";
 
 const Links: React.VFC = () => {
@@ -20,21 +22,27 @@ const Links: React.VFC = () => {
     },
   ];
   return (
-    <div className="w-full">
-      <h2 className="text-2xl font-bold">リンク集</h2>
-      {links.map((link) => {
-        const { title, href, description } = link;
+    <>
+      <OGP
+        title="リンク一覧 | なつねこメモ"
+        url="https://www.natsuneko.blog/links"
+      />
+      <div className="w-full">
+        <h2 className="text-2xl font-bold">リンク集</h2>
+        {links.map((link) => {
+          const { title, href, description } = link;
 
-        return (
-          <section key={href} className="my-4">
-            <ExternalLink href={href} hasUnderline className="block mb-2">
-              {title}
-            </ExternalLink>
-            <p className="pl-4">{description}</p>
-          </section>
-        );
-      })}
-    </div>
+          return (
+            <section key={href} className="my-4">
+              <ExternalLink href={href} hasUnderline className="block mb-2">
+                {title}
+              </ExternalLink>
+              <p className="pl-4">{description}</p>
+            </section>
+          );
+        })}
+      </div>
+    </>
   );
 };
 
