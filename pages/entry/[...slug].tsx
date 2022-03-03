@@ -65,7 +65,7 @@ const getStaticProps: GetStaticProps<Props, PathParams> = async ({
 
 const Entry: React.VFC<Props> = ({ entry, redirect, slug }) => {
   const url = redirect
-    ? `https://www.natsuneko.blog/${redirect.from}`
+    ? `https://www.natsuneko.blog/entry/${redirect.to}`
     : `https://www.natsuneko.blog/entry/${entry.date}/${slug}`;
   const router = useRouter();
 
@@ -76,9 +76,12 @@ const Entry: React.VFC<Props> = ({ entry, redirect, slug }) => {
   if (redirect) {
     return (
       <div className="w-full">
-        <Head>
-          <title>Redirecting... | なつねこメモ</title>
-        </Head>
+        <OGP
+          title="Redirecting... | なつねこメモ"
+          description="redirect"
+          url={url}
+        />
+
         <div
           className="flex justify-center items-center w-full"
           style={{ height: "calc(100vh - 65px - 212px)" }}
