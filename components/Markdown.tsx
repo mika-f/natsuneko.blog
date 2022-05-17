@@ -23,6 +23,8 @@ import TableHead from "./TableHead";
 import TableHeader from "./TableHeader";
 import ZoomableFigure from "./ZoomableFigure";
 import ZoomableImage from "./ZoomableImage";
+import EmbedTitleLink from "./EmbdedTitleLink";
+import EmbedLink from "./EmbdedLink";
 
 type Props = {
   markdown: string;
@@ -34,6 +36,21 @@ type CallbackFunc<TagName extends string> = ComponentType<
 
 const Markdown: React.VFC<Props> = ({ markdown }) => {
   const a: CallbackFunc<"a"> = (props) => {
+    if (props.href.endsWith(":title")) {
+      return (
+        <EmbedTitleLink
+          url={props.href.substring(0, props.href.lastIndexOf(":title"))}
+        />
+      );
+    }
+    if (props.href.endsWith(":embed")) {
+      return (
+        <EmbedLink
+          url={props.href.substring(0, props.href.lastIndexOf(":embed"))}
+        />
+      );
+    }
+
     return (
       <ExternalLink href={props.href} hasUnderline>
         {props.children}
@@ -94,11 +111,11 @@ const Markdown: React.VFC<Props> = ({ markdown }) => {
   };
 
   const ul: UnorderedListComponent = ({ children }) => {
-    return <ul className="list-disc pl-8 my-4">{children}</ul>;
+    return <ul className="pl-8 my-4 list-disc">{children}</ul>;
   };
 
   const ol: OrderedListComponent = ({ children }) => {
-    return <ol className="list-decimal pl-8 my-4">{children}</ol>;
+    return <ol className="pl-8 my-4 list-decimal">{children}</ol>;
   };
 
   return (

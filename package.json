@@ -11,6 +11,7 @@
     "convert:rd": "ts-node bin/redirects.ts"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "contentlayer": "^0.1.1",
     "feed": "^4.2.2",
     "gray-matter": "^4.0.3",
@@ -28,7 +29,8 @@
     "remark": "^14.0.2",
     "remark-gfm": "^3.0.1",
     "remark-math": "^5.1.1",
-    "strip-markdown": "^5.0.0"
+    "strip-markdown": "^5.0.0",
+    "swr": "^1.3.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.12",
