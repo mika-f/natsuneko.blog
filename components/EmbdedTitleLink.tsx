@@ -14,11 +14,7 @@ const EmbedTitleLink: React.VFC<Props> = ({ url }) => {
   );
 
   if (data) {
-    return (
-      <div>
-        <ExternalLink href={url}>{data.data.title}</ExternalLink>
-      </div>
-    );
+    return <ExternalLink href={url}>{data.data.title}</ExternalLink>;
   }
 
   return <ExternalLink href={url}>{url}</ExternalLink>;
