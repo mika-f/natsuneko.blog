@@ -83,10 +83,10 @@ const Entry: React.VFC<Props> = ({ entry, redirect, slug }) => {
         />
 
         <div
-          className="flex justify-center items-center w-full"
+          className="flex items-center justify-center w-full"
           style={{ height: "calc(100vh - 65px - 212px)" }}
         >
-          <div className="flex justify-center items-center mr-4 pr-4 h-16 border-r">
+          <div className="flex items-center justify-center h-16 pr-4 mr-4 border-r">
             <div className="text-4xl">301</div>
           </div>
           <div>This page moved permanently</div>

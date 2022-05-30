@@ -6,7 +6,7 @@ const Header: React.VFC<{}> = () => {
   return (
     <header className="flex flex-col w-full py-6">
       <div className="flex-auto text-center">
-        <h1 className="text-4xl font-bold my-2">
+        <h1 className="my-2 text-4xl font-bold">
           <InternalLink href="/">なつねこメモ</InternalLink>
         </h1>
         <p>主にプログラミング関連のメモ帳 ♪(✿╹ヮ╹)ﾉ</p>
@@ -14,14 +14,14 @@ const Header: React.VFC<{}> = () => {
           書いてあるコードは自己責任でご自由にどうぞ。記事本文の無断転載は禁止です。
         </p>
       </div>
-      <div className="my-4 flex flex-row justify-center">
-        <div className="text-xl underline mr-2">
-          <InternalLink href="/links">リンク集</InternalLink>
-        </div>
-        <div className="text-xl underline mr-2">
+      <div className="flex flex-row justify-center my-4">
+        <div className="mr-2 text-xl underline">
           <InternalLink href="/categories">カテゴリー一覧</InternalLink>
         </div>
-        <div className="text-xl underline mx-2">
+        <div className="mr-2 text-xl underline">
+          <InternalLink href="/about">このサイトについて</InternalLink>
+        </div>
+        <div className="mx-2 text-xl underline">
           <ExternalLink href="https://www.google.com/search?q=site:www.natsuneko.blog">
             検索
           </ExternalLink>

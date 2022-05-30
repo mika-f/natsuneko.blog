@@ -8,9 +8,7 @@ const TableHeader: React.FC<Props> = ({ children, align }) => {
   align = align || "left";
 
   return (
-    <th
-      className={`border border-zinc-400 font-semibold p-4 text-slate-900 text-${align}`}
-    >
+    <th className={`border border-zinc-400 font-semibold p-4 text-${align}`}>
       {children}
     </th>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import Markdown from "./Markdown";
 import InternalLink from "next/link";
+import Container from "./Container";
 
 type Props = {
   title: string;
@@ -11,21 +12,21 @@ type Props = {
 
 const Article: React.FC<Props> = ({ title, date, categories, content }) => {
   return (
-    <div className="w-full">
+    <Container>
       <p>{date}</p>
-      <h2 className="text-3xl font-bold my-2">{title}</h2>
+      <h2 className="my-2 text-3xl font-bold">{title}</h2>
       <div>
         カテゴリー:
         {categories.map((w) => {
           return (
             <InternalLink key={w} href={`/category/${encodeURIComponent(w)}`}>
-              <a className="underline mx-1">{w}</a>
+              <a className="mx-1 underline">{w}</a>
             </InternalLink>
           );
         })}
       </div>
       <Markdown markdown={content} />
-    </div>
+    </Container>
   );
 };
 

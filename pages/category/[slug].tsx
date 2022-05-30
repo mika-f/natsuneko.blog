@@ -6,6 +6,7 @@ import InternalLink from "next/link";
 import { allArticles } from "contentlayer/generated";
 
 import OGP from "../../components/OGP";
+import Container from "../../components/Container";
 
 type PathParams = {
   slug: string;
@@ -61,8 +62,8 @@ const Category: React.VFC<PageProps> = ({ category, entries }) => {
         title={`カテゴリー: ${category} | なつねこメモ`}
         url="https://www.natsuneko.blog/categories"
       />
-      <div className="w-full">
-        <h2 className="text-3xl font-bold mt-2 mb-4">
+      <Container>
+        <h2 className="mt-2 mb-4 text-3xl font-bold">
           カテゴリー: {category} ({entries.length})
         </h2>
         {entries.map((w) => {
@@ -71,13 +72,13 @@ const Category: React.VFC<PageProps> = ({ category, entries }) => {
               {w.date}
               <h2 className="mt-1">
                 <InternalLink href={`/entry/${w.basename}`}>
-                  <a className="underline text-xl">{w.title}</a>
+                  <a className="text-xl underline">{w.title}</a>
                 </InternalLink>
               </h2>
             </div>
           );
         })}
-      </div>
+      </Container>
     </>
   );
 };

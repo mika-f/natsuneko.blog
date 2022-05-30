@@ -5,6 +5,7 @@ import InternalLink from "next/link";
 
 import { allArticles } from "contentlayer/generated";
 import OGP from "../components/OGP";
+import Container from "../components/Container";
 
 type PathParams = {
   slug: string;
@@ -48,15 +49,15 @@ const Categories: React.VFC<PageProps> = ({ categories }) => {
         title="カテゴリー一覧 | なつねこメモ"
         url="https://www.natsuneko.blog/categories"
       />
-      <div className="w-full">
-        <h2 className="text-2xl font-bold mt-2 mb-4">カテゴリー一覧</h2>
-        <ul className="list-disc pl-6">
+      <Container>
+        <h2 className="mt-2 mb-4 text-2xl font-bold">カテゴリー一覧</h2>
+        <ul className="pl-6 list-disc">
           {rankedCategories.map((w) => {
             return (
               <li key={w} className="my-2">
                 <h2 className="mt-1">
                   <InternalLink href={`/category/${encodeURIComponent(w)}`}>
-                    <a className="underline text-xl">
+                    <a className="text-xl underline">
                       {w} ({categories[w]})
                     </a>
                   </InternalLink>
@@ -65,7 +66,7 @@ const Categories: React.VFC<PageProps> = ({ categories }) => {
             );
           })}
         </ul>
-      </div>
+      </Container>
     </>
   );
 };
