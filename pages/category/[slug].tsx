@@ -32,10 +32,8 @@ const REDIRECT_MAPS = {
 const getStaticPaths: GetStaticPaths<PathParams> = () => {
   const categories = new Set(allArticles.flatMap((w) => w.categories));
   const paths = Array.from(categories).map((w) => {
-    return { params: { slug: w } };
+    return { params: { slug: REDIRECT_MAPS[w] ?? w } };
   });
-
-  console.log(paths);
 
   for (const key of Object.keys(REDIRECT_MAPS))
     paths.push({ params: { slug: key } });
