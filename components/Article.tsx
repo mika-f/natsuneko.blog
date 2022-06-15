@@ -18,8 +18,14 @@ const Article: React.FC<Props> = ({ title, date, categories, content }) => {
       <div>
         カテゴリー:
         {categories.map((w) => {
+          // workaround for Next.js C#.html -> C%23.html conversion
+          const category =
+            w === "C#"
+              ? encodeURIComponent(encodeURIComponent(w))
+              : encodeURIComponent(w);
+
           return (
-            <InternalLink key={w} href={`/category/${encodeURIComponent(w)}`}>
+            <InternalLink key={w} href={`/category/${category}`}>
               <a className="mx-1 underline">{w}</a>
             </InternalLink>
           );
