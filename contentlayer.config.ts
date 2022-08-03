@@ -8,9 +8,15 @@ import { remark } from "remark";
 import strip from "strip-markdown";
 
 const getSummarizedText = (markdown: string) => {
-  const text = remark().use(strip).processSync(markdown).toString();
+  const text = remark()
+    .use(strip)
+    .processSync(markdown)
+    .toString()
+    .replaceAll(/\s{2,}/gm, " ")
+    .replaceAll(/\n/gm, "");
+
   const firstSentence = text.indexOf("。");
-  if (firstSentence <= 120) {
+  if (100 <= firstSentence && firstSentence <= 120) {
     return text.substring(0, firstSentence + 1);
   }
 
