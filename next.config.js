@@ -1,16 +1,15 @@
 const path = require("path");
 const { withContentlayer } = require("next-contentlayer");
 
-module.exports = withContentlayer()({
+module.exports = withContentlayer({
   reactStrictMode: true,
   images: {
     domains: ["assets.natsuneko.blog"],
   },
   webpack: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      "contentlayer/generated": path.join(__dirname, ".contentlayer/generated"),
-    };
+    // suppress warnings of webpack ESM module resolver
+    // ref: https://github.com/contentlayerdev/contentlayer/issues/313#issuecomment-1279678289
+    config.infrastructureLogging = { level: "error" };
 
     return config;
   },

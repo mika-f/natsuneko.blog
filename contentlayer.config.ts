@@ -4,6 +4,7 @@ import {
   defineNestedType,
   makeSource,
 } from "contentlayer/source-files";
+import RehypePrettyCode from "rehype-pretty-code";
 import { remark } from "remark";
 import strip from "strip-markdown";
 
@@ -65,6 +66,16 @@ const Redirects = defineDocumentType(() => ({
 const config = makeSource({
   contentDirPath: "contents",
   documentTypes: [Article, Redirects],
+  markdown: {
+    rehypePlugins: [
+      [
+        RehypePrettyCode,
+        {
+          theme: "github-dark",
+        },
+      ],
+    ],
+  },
 });
 
 export default config;

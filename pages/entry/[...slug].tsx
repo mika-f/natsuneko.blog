@@ -107,7 +107,7 @@ const Entry: React.VFC<Props> = ({ entry, redirect, slug }) => {
           title={entry.title}
           date={entry.date}
           categories={entry.categories}
-          content={entry.body.raw}
+          content={entry.body.html}
         />
       </div>
     </>
