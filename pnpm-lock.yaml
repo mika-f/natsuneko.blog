@@ -9,7 +9,7 @@ specifiers:
   autoprefixer: 10.4.14
   axios: 0.27.2
   clsx: 1.2.1
-  contentlayer: ^0.3.0
+  contentlayer: 0.3.0
   eslint: 8.35.0
   eslint-config-next: 13.2.4
   feed: 4.2.2
@@ -17,7 +17,7 @@ specifiers:
   marked: 4.2.12
   mt-parser: 1.0.0-alpha.6
   next: 13.2.4
-  next-contentlayer: ^0.3.0
+  next-contentlayer: 0.3.0
   next-seo: 5.15.0
   next-sitemap: 2.5.28
   postcss: 8.4.21
