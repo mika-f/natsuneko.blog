@@ -19,7 +19,7 @@ specifiers:
   next: 13.2.4
   next-contentlayer: 0.3.0
   next-seo: 5.15.0
-  next-sitemap: 4.0.2
+  next-sitemap: 4.0.5
   postcss: 8.4.21
   react: 18.2.0
   react-dom: 18.2.0
@@ -68,7 +68,7 @@ devDependencies:
   eslint: 8.35.0
   eslint-config-next: 13.2.4_ycpbpc6yetojsgtrx3mwntkhsu
   mt-parser: 1.0.0-alpha.6
-  next-sitemap: 4.0.2_next@13.2.4
+  next-sitemap: 4.0.5_next@13.2.4
   postcss: 8.4.21
   rehype-code-titles: 1.2.0
   rehype-mathjax: 4.0.2
@@ -3935,8 +3935,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /next-sitemap/4.0.2_next@13.2.4:
-    resolution: {integrity: sha512-NQVzguzW6xkh0fZzmgZJ//H9f1DdvKmhJmTO1xuIPmDuZxM2Gd48CrKHXVnbK0zAx52hpyNe3ZUGkrExUWyljg==}
+  /next-sitemap/4.0.5_next@13.2.4:
+    resolution: {integrity: sha512-kIABX4n8wJqY2sttRjivBF2r1MgQ1pg12y87qGT+5meippq0ivxaNSRldMDOj8pIGhXW6uFAsCxyH/JftqkwWQ==}
     engines: {node: '>=14.18'}
     hasBin: true
     peerDependencies:
