@@ -46,10 +46,11 @@ const getStaticPaths: GetStaticPaths<PathParams> = async () => {
   };
 };
 
+// @ts-expect-error
 const getStaticProps: GetStaticProps<Props, PathParams> = async ({
   params,
 }) => {
-  const [year, month, day, slug] = params.slug;
+  const [year, month, day, slug] = params!.slug;
   const redirect =
     allRedirects[0].redirects.find(
       (w) => w.from === `${year}/${month}/${day}/${slug}`
@@ -63,7 +64,7 @@ const getStaticProps: GetStaticProps<Props, PathParams> = async ({
   };
 };
 
-const Entry: React.VFC<Props> = ({ entry, redirect, slug }) => {
+const Entry: React.FC<Props> = ({ entry, redirect, slug }) => {
   const url = redirect
     ? `https://www.natsuneko.blog/entry/${redirect.to}`
     : `https://www.natsuneko.blog/entry/${entry.date}/${slug}`;
@@ -107,7 +108,7 @@ const Entry: React.VFC<Props> = ({ entry, redirect, slug }) => {
           title={entry.title}
           date={entry.date}
           categories={entry.categories}
-          content={entry.body.html}
+          content={entry.body.code}
         />
       </div>
     </>

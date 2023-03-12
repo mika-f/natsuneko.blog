@@ -1,6 +1,5 @@
 import React from "react";
 import { GetStaticProps } from "next";
-import Head from "next/head";
 import InternalLink from "next/link";
 import { allArticles } from "contentlayer/generated";
 
@@ -43,8 +42,11 @@ const Home: React.VFC<Props> = ({ entries }) => {
             <div key={w.basename} className="mt-2 mb-12">
               {w.date}
               <h2 className="mt-1">
-                <InternalLink href={`/entry/${w.basename}`}>
-                  <a className="text-xl underline">{w.title}</a>
+                <InternalLink
+                  href={`/entry/${w.basename}`}
+                  className="text-xl underline break-words"
+                >
+                  {w.title}
                 </InternalLink>
               </h2>
             </div>

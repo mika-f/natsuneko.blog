@@ -1,5 +1,5 @@
 import React from "react";
-import Markdown from "./Markdown";
+import { Markdown } from "./Markdown";
 import InternalLink from "next/link";
 import Container from "./Container";
 
@@ -25,8 +25,12 @@ const Article: React.FC<Props> = ({ title, date, categories, content }) => {
               : encodeURIComponent(w);
 
           return (
-            <InternalLink key={w} href={`/category/${category}`}>
-              <a className="mx-1 underline">{w}</a>
+            <InternalLink
+              key={w}
+              href={`/category/${category}`}
+              className="mx-1 underline"
+            >
+              {w}
             </InternalLink>
           );
         })}

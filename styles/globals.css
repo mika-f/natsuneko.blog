@@ -33,8 +33,24 @@ body footer {
   }
 }
 
-pre {
-  margin: 0 !important;
+.rehype-code-title {
+  @apply w-fit;
+  @apply font-mono;
+  @apply bg-slate-900;
+  @apply text-slate-300;
+  @apply mt-4;
+  @apply px-4 py-1;
+  @apply text-xs;
+  @apply border-b border-slate-600;
+}
+
+.rehype-code-title ~ [data-rehype-pretty-code-fragment] pre {
+  @apply mt-0;
+}
+
+.line:empty {
+  @apply block;
+  height: 20px;
 }
 
 figure {

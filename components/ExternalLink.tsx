@@ -4,6 +4,7 @@ type Props = {
   href: string;
   hasUnderline?: boolean;
   className?: string;
+  children: React.ReactNode;
 };
 
 const ExternalLink: React.FC<Props> = ({
@@ -12,7 +13,7 @@ const ExternalLink: React.FC<Props> = ({
   children,
   hasUnderline,
 }) => {
-  const classNames: string[] = [className];
+  const classNames: string[] = [className ?? ""];
   if (hasUnderline) classNames.push("underline");
 
   const str = classNames.join(" ");

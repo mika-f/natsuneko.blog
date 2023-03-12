@@ -4,8 +4,15 @@ import {
   defineNestedType,
   makeSource,
 } from "contentlayer/source-files";
+
+import RehypeCodeTitles from "rehype-code-titles";
 import RehypePrettyCode from "rehype-pretty-code";
+import RehypeRaw from "rehype-raw";
+import RehypeMathJax from "rehype-mathjax";
 import { remark } from "remark";
+import RemarkGfm from "remark-gfm";
+import RemarkMath from "remark-math";
+
 import strip from "strip-markdown";
 
 const getSummarizedText = (markdown: string) => {
@@ -36,7 +43,7 @@ const computedFields: ComputedFields = {
 const Article = defineDocumentType(() => ({
   name: "Article",
   filePathPattern: "**/*.md",
-  contentType: "markdown",
+  contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
     date: { type: "string", required: true },
@@ -63,19 +70,36 @@ const Redirects = defineDocumentType(() => ({
   },
 }));
 
-const config = makeSource({
-  contentDirPath: "contents",
+export default makeSource({
+  contentDirPath: "./contents",
   documentTypes: [Article, Redirects],
-  markdown: {
+  mdx: {
+    remarkPlugins: [RemarkGfm, RemarkMath],
     rehypePlugins: [
+      RehypeMathJax,
+      [
+        RehypeRaw,
+        {
+          passThrough: [
+            "mdxjsEsm",
+            "mdxJsxTextElement",
+            "mdxJsxFlowElement",
+            "mdxTextExpression",
+          ],
+        },
+      ],
+      [
+        RehypeCodeTitles,
+        {
+          titleSeparator: ":",
+        },
+      ],
       [
         RehypePrettyCode,
         {
-          theme: "github-dark",
+          theme: "dark-plus",
         },
       ],
     ],
   },
 });
-
-export default config;

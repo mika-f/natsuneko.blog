@@ -43,38 +43,35 @@ const Categories: React.VFC<PageProps> = ({ categories }) => {
     return 0;
   });
 
-  return (
-    <>
-      <OGP
-        title="カテゴリー一覧 | なつねこメモ"
-        url="https://www.natsuneko.blog/categories"
-      />
-      <Container>
-        <h2 className="mt-2 mb-4 text-2xl font-bold">カテゴリー一覧</h2>
-        <ul className="pl-6 list-disc">
-          {rankedCategories.map((w) => {
-            // workaround for Next.js C#.html -> C%23.html conversion
-            const category =
-              w === "C#"
-                ? encodeURIComponent(encodeURIComponent(w))
-                : encodeURIComponent(w);
+  return <>
+    <OGP
+      title="カテゴリー一覧 | なつねこメモ"
+      url="https://www.natsuneko.blog/categories"
+    />
+    <Container>
+      <h2 className="mt-2 mb-4 text-2xl font-bold">カテゴリー一覧</h2>
+      <ul className="pl-6 list-disc">
+        {rankedCategories.map((w) => {
+          // workaround for Next.js C#.html -> C%23.html conversion
+          const category =
+            w === "C#"
+              ? encodeURIComponent(encodeURIComponent(w))
+              : encodeURIComponent(w);
 
-            return (
-              <li key={w} className="my-2">
-                <h2 className="mt-1">
-                  <InternalLink href={`/category/${category}`}>
-                    <a className="text-xl underline">
-                      {w} ({categories[w]})
-                    </a>
-                  </InternalLink>
-                </h2>
-              </li>
-            );
-          })}
-        </ul>
-      </Container>
-    </>
-  );
+          return (
+            <li key={w} className="my-2">
+              <h2 className="mt-1">
+                <InternalLink href={`/category/${category}`} className="text-xl underline">
+
+                  {w}({categories[w]})
+                </InternalLink>
+              </h2>
+            </li>
+          );
+        })}
+      </ul>
+    </Container>
+  </>;
 };
 
 export { getStaticProps };

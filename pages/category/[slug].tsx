@@ -27,7 +27,7 @@ type PageProps = {
 
 const REDIRECT_MAPS = {
   "C#": "CSharp",
-};
+} as Record<string, string>;
 
 const getStaticPaths: GetStaticPaths<PathParams> = () => {
   const categories = new Set(allArticles.flatMap((w) => w.categories));
@@ -46,11 +46,13 @@ const getStaticPaths: GetStaticPaths<PathParams> = () => {
 
 const getStaticProps: GetStaticProps<PageProps, PathParams> = ({ params }) => {
   const slug = Object.keys(REDIRECT_MAPS).find(
-    (key) => REDIRECT_MAPS[key] === params.slug
+    (key) => REDIRECT_MAPS[key] === params?.slug
   );
   const entries = allArticles
     .filter(
-      (w) => w.categories.includes(params.slug) || w.categories.includes(slug)
+      (w) =>
+        (params && w.categories.includes(params.slug)) ||
+        (slug && w.categories.includes(slug!))
     )
     .map((w) => {
       return {
@@ -61,12 +63,12 @@ const getStaticProps: GetStaticProps<PageProps, PathParams> = ({ params }) => {
     })
     .reverse();
 
-  const redirect = REDIRECT_MAPS[params.slug] ?? null;
+  const redirect = REDIRECT_MAPS[params?.slug ?? ""] ?? null;
 
   return {
     props: {
       entries,
-      category: params.slug,
+      category: params?.slug ?? "",
       redirect,
     },
   };
@@ -118,8 +120,11 @@ const Category: React.VFC<PageProps> = ({ category, entries, redirect }) => {
             <div key={w.basename} className="mt-2 mb-12">
               {w.date}
               <h2 className="mt-1">
-                <InternalLink href={`/entry/${w.basename}`}>
-                  <a className="text-xl underline">{w.title}</a>
+                <InternalLink
+                  href={`/entry/${w.basename}`}
+                  className="text-xl underline"
+                >
+                  {w.title}
                 </InternalLink>
               </h2>
             </div>
