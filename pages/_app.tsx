@@ -5,8 +5,9 @@ import Layout from "../components/Layout";
 
 import "../styles/globals.css";
 import useGA from "../hooks/useGA";
+import { AppProps } from "next/app";
 
-const App = ({ Component, pageProps }) => {
+const App = ({ Component, pageProps }: AppProps) => {
   useGA();
 
   return (

@@ -2,7 +2,11 @@ import React from "react";
 import Footer from "./Footer";
 import Header from "./Header";
 
-const Layout: React.FC = ({ children }) => {
+type Props = {
+  children?: React.ReactNode;
+};
+
+const Layout: React.FC<Props> = ({ children }) => {
   return (
     <div className="min-h-screen text-sakura-text-dark bg-sakura-bg">
       <div className="container min-h-screen mx-auto">

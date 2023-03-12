@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@types/marked': ^4.0.8
   '@types/node': ^18.14.6
   '@types/react': ^18.0.28
   '@types/turndown': ^5.0.1
@@ -56,6 +57,7 @@ dependencies:
   tailwind-merge: 1.10.0
 
 devDependencies:
+  '@types/marked': 4.0.8
   '@types/node': 18.14.6
   '@types/react': 18.0.28
   '@types/turndown': 5.0.1
@@ -1028,6 +1030,10 @@ packages:
   /@types/long/4.0.2:
     resolution: {integrity: sha512-MqTGEo5bj5t157U6fA/BiDynNkn0YknVdh48CMPkTSpFTVmvao5UQmm7uEF6xBEo7qIMAlY/JSleYaE6VOdpaA==}
     dev: false
+
+  /@types/marked/4.0.8:
+    resolution: {integrity: sha512-HVNzMT5QlWCOdeuBsgXP8EZzKUf0+AXzN+sLmjvaB3ZlLqO+e4u0uXrdw9ub69wBKFs+c6/pA4r9sy6cCDvImw==}
+    dev: true
 
   /@types/mathjax/0.0.37:
     resolution: {integrity: sha512-y0WSZBtBNQwcYipTU/BhgeFu1EZNlFvUNCmkMXV9kBQZq7/o5z82dNVyH3yy2Xv5zzeNeQoHSL4Xm06+EQiH+g==}

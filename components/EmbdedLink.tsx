@@ -5,12 +5,12 @@ type Props = {
 };
 
 const EmbedLink: React.VFC<Props> = ({ url }) => {
-  const ref = useRef<HTMLIFrameElement>(undefined);
+  const ref = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {
     const onMessageReceived = (msg: MessageEvent<any>) => {
       const data = msg.data;
-      if (data[0] === "onload" && data[1] === url) {
+      if (ref.current && data[0] === "onload" && data[1] === url) {
         ref.current.height = `${data[2]}`;
       }
     };
@@ -18,7 +18,7 @@ const EmbedLink: React.VFC<Props> = ({ url }) => {
     window.addEventListener("message", onMessageReceived);
 
     return () => window.removeEventListener("message", onMessageReceived);
-  });
+  }, [url]);
 
   return (
     <iframe
