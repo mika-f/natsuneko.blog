@@ -2,15 +2,15 @@
   "name": "natsuneko.blog",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "npm run partytown && next dev",
+    "build": "npm run partytown && next build",
     "postbuild": "next-sitemap --config sitemap.config.js",
     "start": "next start",
     "lint": "next lint",
-    "convert:mt": "ts-node bin/mt2md.ts",
-    "convert:rd": "ts-node bin/redirects.ts"
+    "partytown": "partytown copylib public/~partytown"
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.7.5",
     "axios": "0.27.2",
     "clsx": "1.2.1",
     "contentlayer": "0.3.0",

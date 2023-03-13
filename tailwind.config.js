@@ -13,6 +13,12 @@ module.exports = {
           "text-dark": "#322126",
           "text-white": "#ffffff",
         },
+        season: {
+          primary: "#F6CED8",
+          background: "#FFF2F4",
+          text: "#555555",
+          link: "#E91E63",
+        },
       },
     },
   },

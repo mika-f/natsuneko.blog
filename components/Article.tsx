@@ -12,7 +12,7 @@ type Props = {
 
 const Article: React.FC<Props> = ({ title, date, categories, content }) => {
   return (
-    <Container>
+    <Container className="bg-season-background">
       <p>{date}</p>
       <h2 className="my-2 text-3xl font-bold">{title}</h2>
       <div>
@@ -28,7 +28,7 @@ const Article: React.FC<Props> = ({ title, date, categories, content }) => {
             <InternalLink
               key={w}
               href={`/category/${category}`}
-              className="mx-1 underline"
+              className="mx-1 underline text-season-link"
             >
               {w}
             </InternalLink>

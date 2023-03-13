@@ -2,6 +2,7 @@ import React from "react";
 import Head from "next/head";
 import Script from "next/script";
 import Layout from "../components/Layout";
+import { Partytown } from "@builder.io/partytown/react";
 
 import "../styles/globals.css";
 import useGA from "../hooks/useGA";
@@ -19,12 +20,10 @@ const App = ({ Component, pageProps }: AppProps) => {
       <Layout>
         <Component {...pageProps} />
       </Layout>
-      <Script
-        src="https://kit.fontawesome.com/70c6fd74b5.js"
-        crossOrigin="anonymous"
-      />
+      <Partytown forward={["dataLayer.push"]} />
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-LH1W6QPTN1"
+        type="text/partytown"
         strategy="afterInteractive"
       />
       <Script id="google-analytics" strategy="afterInteractive">

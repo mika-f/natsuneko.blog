@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@builder.io/partytown': ^0.7.5
   '@types/marked': 4.0.8
   '@types/node': 18.15.0
   '@types/react': 18.0.28
@@ -43,6 +44,7 @@ specifiers:
   yargs: 17.7.1
 
 dependencies:
+  '@builder.io/partytown': 0.7.5
   axios: 0.27.2
   clsx: 1.2.1
   contentlayer: 0.3.0
@@ -93,6 +95,11 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.11
+
+  /@builder.io/partytown/0.7.5:
+    resolution: {integrity: sha512-Zbr2Eo0AQ4yzmQr/36/h+6LKjmdVBB3Q5cGzO6rtlIKB/IOpbQVUZW+XAnhpJmJr9sIF97OZjgbhG9k7Sjn4yw==}
+    hasBin: true
+    dev: false
 
   /@contentlayer/cli/0.3.0:
     resolution: {integrity: sha512-Mqb6NlIKINt2qsPKft+o8m5tJhJXVgVSd0zP1BH+CQRmvR/zwTT3maz1bDCPHBYGKgGCQKtvgM66IjvH+dmC6Q==}

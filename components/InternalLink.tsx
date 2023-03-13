@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 type Props = {
   href: string;
@@ -7,7 +8,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-const ExternalLink: React.FC<Props> = ({
+const InternalLink: React.FC<Props> = ({
   className,
   href,
   children,
@@ -19,10 +20,10 @@ const ExternalLink: React.FC<Props> = ({
   const str = classNames.join(" ");
 
   return (
-    <a className={str} href={href} target="_blank" rel="noopener noreferrer">
+    <Link className={str} href={href}>
       {children}
-    </a>
+    </Link>
   );
 };
 
-export default ExternalLink;
+export default InternalLink;

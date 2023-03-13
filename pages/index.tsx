@@ -36,7 +36,7 @@ const Home: React.VFC<Props> = ({ entries }) => {
   return (
     <>
       <OGP title="なつねこメモ" url="https://www.natsuneko.blog/" />
-      <Container>
+      <Container className="bg-season-background">
         {entries.map((w) => {
           return (
             <div key={w.basename} className="mt-2 mb-12">
@@ -44,7 +44,7 @@ const Home: React.VFC<Props> = ({ entries }) => {
               <h2 className="mt-1">
                 <InternalLink
                   href={`/entry/${w.basename}`}
-                  className="text-xl underline break-words"
+                  className="text-xl underline break-words text-season-link"
                 >
                   {w.title}
                 </InternalLink>

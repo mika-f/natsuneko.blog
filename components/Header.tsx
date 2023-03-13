@@ -15,10 +15,10 @@ const Header: React.VFC<{}> = () => {
         </p>
       </div>
       <div className="flex flex-row justify-center my-4">
-        <div className="mr-2 text-xl underline">
+        <div className="mr-2 text-xl text-season-link underline">
           <InternalLink href="/categories">カテゴリー一覧</InternalLink>
         </div>
-        <div className="mr-2 text-xl underline">
+        <div className="mr-2 text-xl text-season-link underline">
           <InternalLink href="/about">このサイトについて</InternalLink>
         </div>
         <div className="mx-2 text-xl underline">

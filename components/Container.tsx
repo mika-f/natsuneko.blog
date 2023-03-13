@@ -1,12 +1,19 @@
+import { cls } from "lib/cls";
 import React from "react";
 
 type Props = {
   children: React.ReactNode;
+  className?: string;
 };
 
-const Container: React.FC<Props> = ({ children }) => {
+const Container: React.FC<Props> = ({ children, className }) => {
   return (
-    <div className="w-full px-8 py-12 rounded-lg bg-sakura-secondary">
+    <div
+      className={cls(
+        "w-full px-8 py-12 rounded-lg bg-season-primary",
+        className
+      )}
+    >
       {children}
     </div>
   );
