@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@builder.io/partytown': ^0.7.5
+  '@builder.io/partytown': 0.7.5
   '@types/marked': 4.0.8
   '@types/node': 18.15.0
   '@types/react': 18.0.28
