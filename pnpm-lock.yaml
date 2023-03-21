@@ -6,7 +6,7 @@ specifiers:
   '@types/node': 18.15.5
   '@types/react': 18.0.28
   '@types/turndown': 5.0.1
-  '@types/yargs': 17.0.22
+  '@types/yargs': 17.0.23
   autoprefixer: 10.4.14
   axios: 0.27.2
   clsx: 1.2.1
@@ -65,7 +65,7 @@ devDependencies:
   '@types/node': 18.15.5
   '@types/react': 18.0.28
   '@types/turndown': 5.0.1
-  '@types/yargs': 17.0.22
+  '@types/yargs': 17.0.23
   autoprefixer: 10.4.14_postcss@8.4.21
   eslint: 8.36.0
   eslint-config-next: 13.2.4_vgl77cfdswitgr47lm5swmv43m
@@ -1128,8 +1128,8 @@ packages:
     resolution: {integrity: sha512-iO9ZQHkZxHn4mSakYV0vFHAVDyEOIJQrV2uZ06HxEPcx+mt8swXoZHIbaaJ2crJYFfErySgktuTZ3BeLz+XmFA==}
     dev: true
 
-  /@types/yargs/17.0.22:
-    resolution: {integrity: sha512-pet5WJ9U8yPVRhkwuEIp5ktAeAqRZOq4UdAyWLWzxbtpyXnzbtLdKiXAjJzi/KLmPGS9wk86lUFWZFN6sISo4g==}
+  /@types/yargs/17.0.23:
+    resolution: {integrity: sha512-yuogunc04OnzGQCrfHx+Kk883Q4X0aSwmYZhKjI21m+SVYzjIbrWl8dOOwSv5hf2Um2pdCOXWo9isteZTNXUZQ==}
     dependencies:
       '@types/yargs-parser': 21.0.0
     dev: true
