@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@builder.io/partytown': 0.7.6
   '@types/marked': 4.0.8
-  '@types/node': 18.15.8
+  '@types/node': 18.15.9
   '@types/react': 18.0.29
   '@types/turndown': 5.0.1
   '@types/yargs': 17.0.23
@@ -62,7 +62,7 @@ dependencies:
 
 devDependencies:
   '@types/marked': 4.0.8
-  '@types/node': 18.15.8
+  '@types/node': 18.15.9
   '@types/react': 18.0.29
   '@types/turndown': 5.0.1
   '@types/yargs': 17.0.23
@@ -82,7 +82,7 @@ devDependencies:
   shiki: 0.14.1
   strip-markdown: 5.0.0
   tailwindcss: 3.2.7_aesdjsunmf4wiehhujt67my7tu
-  ts-node: 10.9.1_p3zjr3pyxsivr4djscnsjcvzuq
+  ts-node: 10.9.1_3flabivgbrnlfzsgzfhinuvrvy
   turndown: 7.1.2
   turndown-plugin-gfm: 1.0.2
   typescript: 5.0.2
@@ -543,7 +543,7 @@ packages:
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
       '@grpc/proto-loader': 0.7.5
-      '@types/node': 18.15.8
+      '@types/node': 18.15.9
     dev: false
 
   /@grpc/proto-loader/0.6.13:
@@ -1087,8 +1087,8 @@ packages:
   /@types/ms/0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
 
-  /@types/node/18.15.8:
-    resolution: {integrity: sha512-kzGNJZ57XEH7RdckxZ7wfRjB9hgZABF+NLgR1B2zogUvV0gmK0/60VYA4yb4oKZckPiiJlmmfpdqTfCN0VRX+Q==}
+  /@types/node/18.15.9:
+    resolution: {integrity: sha512-dUxhiNzBLr6IqlZXz6e/rN2YQXlFgOei/Dxy+e3cyXTJ4txSUbGT2/fmnD6zd/75jDMeW5bDee+YXxlFKHoV0A==}
 
   /@types/parse5/6.0.3:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
@@ -4270,7 +4270,7 @@ packages:
     dependencies:
       lilconfig: 2.1.0
       postcss: 8.4.21
-      ts-node: 10.9.1_p3zjr3pyxsivr4djscnsjcvzuq
+      ts-node: 10.9.1_3flabivgbrnlfzsgzfhinuvrvy
       yaml: 1.10.2
     dev: true
 
@@ -4350,7 +4350,7 @@ packages:
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
       '@types/long': 4.0.2
-      '@types/node': 18.15.8
+      '@types/node': 18.15.9
       long: 4.0.0
     dev: false
 
@@ -4369,7 +4369,7 @@ packages:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 18.15.8
+      '@types/node': 18.15.9
       long: 5.2.1
     dev: false
 
@@ -4997,7 +4997,7 @@ packages:
   /trough/2.1.0:
     resolution: {integrity: sha512-AqTiAOLcj85xS7vQ8QkAV41hPDIJ71XJB4RCUrzo/1GM2CQwhkJGaf9Hgr7BOugMRpgGUrqRg/DrBDl4H40+8g==}
 
-  /ts-node/10.9.1_p3zjr3pyxsivr4djscnsjcvzuq:
+  /ts-node/10.9.1_3flabivgbrnlfzsgzfhinuvrvy:
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -5016,7 +5016,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.3
-      '@types/node': 18.15.8
+      '@types/node': 18.15.9
       acorn: 8.8.2
       acorn-walk: 8.2.0
       arg: 4.1.3
