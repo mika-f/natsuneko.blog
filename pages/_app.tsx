@@ -20,19 +20,19 @@ const App = ({ Component, pageProps }: AppProps) => {
       <Layout>
         <Component {...pageProps} />
       </Layout>
-      <Partytown forward={["dataLayer.push"]} />
+      <Partytown debug={true} forward={["dataLayer.push", "gtag"]} />
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-LH1W6QPTN1"
         type="text/partytown"
-        strategy="afterInteractive"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics" type="text/partytown">
         {`
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
+          window.gtag = function gtag() { window.dataLayer.push(arguments); }
+
           gtag('js', new Date());
 
-          gtag('config', 'G-LH1W6QPTN1');
+        gtag('config', 'G-LH1W6QPTN1');
         `}
       </Script>
     </>
