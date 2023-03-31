@@ -1,15 +1,12 @@
 import React from "react";
-import OGP from "../components/OGP";
 
 import ExternalLink from "../components/ExternalLink";
+import { NextSeo } from "next-seo";
 
 const About: React.FC = () => {
   return (
     <>
-      <OGP
-        title="このサイトについて | なつねこメモ"
-        url="https://www.natsuneko.blog/links"
-      />
+      <NextSeo title="このサイトについて" />
       <h2 className="my-2 text-3xl font-bold">このサイトについて</h2>
       <section className="mt-8 mb-4">
         <h3 className="my-2 text-2xl font-bold">このブログについて</h3>

@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
-import Head from "next/head";
 import { useRouter } from "next/router";
 
 import { allArticles, allRedirects } from "contentlayer/generated";
 import type { Article as Entry, Redirect } from "contentlayer/generated";
 
 import Article from "../../components/Article";
-import OGP from "../../components/OGP";
+import { NextSeo } from "next-seo";
 
 type PathParams = {
   slug: [string, string, string, string];
@@ -77,10 +76,10 @@ const Entry: React.FC<Props> = ({ entry, redirect, slug }) => {
   if (redirect) {
     return (
       <div className="w-full">
-        <OGP
-          title="Redirecting... | なつねこメモ"
+        <NextSeo
+          title="Redirecting... "
           description="redirect"
-          url={url}
+          canonical={url}
         />
 
         <div
@@ -98,10 +97,10 @@ const Entry: React.FC<Props> = ({ entry, redirect, slug }) => {
 
   return (
     <>
-      <OGP
-        title={`${entry.title} | なつねこメモ`}
+      <NextSeo
+        title={entry.title}
         description={entry.summary}
-        url={url}
+        canonical={url}
       />
       <Article
         title={entry.title}

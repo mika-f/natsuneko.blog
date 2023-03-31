@@ -1,10 +1,8 @@
 import React from "react";
 import { GetStaticProps } from "next";
-import InternalLink from "next/link";
+import InternalLink from "../components/InternalLink";
 import { allArticles } from "contentlayer/generated";
-
-import Container from "../components/Container";
-import OGP from "../components/OGP";
+import { NextSeo } from "next-seo";
 
 type Entry = {
   title: string;
@@ -35,7 +33,6 @@ const getStaticProps: GetStaticProps<Props, {}> = async ({}) => {
 const Home: React.VFC<Props> = ({ entries }) => {
   return (
     <>
-      <OGP title="なつねこメモ" url="https://www.natsuneko.blog/" />
       {entries.map((w) => {
         return (
           <div key={w.basename} className="mt-2 mb-12">
@@ -43,7 +40,8 @@ const Home: React.VFC<Props> = ({ entries }) => {
             <h2 className="mt-1">
               <InternalLink
                 href={`/entry/${w.basename}`}
-                className="text-xl underline break-words text-season-link"
+                className="text-xl break-words"
+                hasUnderline
               >
                 {w.title}
               </InternalLink>

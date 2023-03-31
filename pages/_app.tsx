@@ -1,4 +1,5 @@
 import React from "react";
+import { DefaultSeo } from "next-seo";
 import Head from "next/head";
 import Script from "next/script";
 import Layout from "../components/Layout";
@@ -16,7 +17,26 @@ const App = ({ Component, pageProps }: AppProps) => {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-
+      <DefaultSeo
+        titleTemplate="%s | なつねこメモ"
+        defaultTitle="なつねこメモ"
+        description="no description provided"
+        openGraph={{
+          images: [
+            {
+              url: "https://assets.natsuneko.blog/media/natsuneko.png",
+            },
+          ],
+          locale: "ja_JP",
+          site_name: "なつねこメモ",
+          type: "website",
+        }}
+        twitter={{
+          handle: "@6jz",
+          site: "@6jz",
+          cardType: "summary",
+        }}
+      />
       <Layout>
         <Component {...pageProps} />
       </Layout>

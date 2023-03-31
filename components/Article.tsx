@@ -11,7 +11,7 @@ type Props = {
 
 const Article: React.FC<Props> = ({ title, date, categories, content }) => {
   return (
-    <div>
+    <>
       <p>{date}</p>
       <h2 className="my-2 text-3xl font-bold">{title}</h2>
       <div className="flex">
@@ -35,7 +35,7 @@ const Article: React.FC<Props> = ({ title, date, categories, content }) => {
         </ul>
       </div>
       <Markdown markdown={content} />
-    </div>
+    </>
   );
 };
 

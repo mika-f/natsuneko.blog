@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 import { allArticles } from "contentlayer/generated";
 
-import OGP from "../../components/OGP";
+import { NextSeo } from "next-seo";
 import Container from "../../components/Container";
 import InternalLink from "../../components/InternalLink";
 
@@ -83,10 +83,10 @@ const Category: React.VFC<PageProps> = ({ category, entries, redirect }) => {
 
   if (redirect) {
     <div className="w-full">
-      <OGP
-        title="Redirecting... | なつねこメモ"
+      <NextSeo
+        title="Redirecting..."
         description="redirect"
-        url={`/category/${redirect}`}
+        canonical={`/category/${redirect}`}
       />
 
       <div
@@ -107,10 +107,7 @@ const Category: React.VFC<PageProps> = ({ category, entries, redirect }) => {
 
   return (
     <>
-      <OGP
-        title={`カテゴリー: ${original ?? category} | なつねこメモ`}
-        url="https://www.natsuneko.blog/categories"
-      />
+      <NextSeo title={`カテゴリー: ${original ?? category}`} />
       <h2 className="mt-2 mb-4 text-3xl font-bold">
         カテゴリー: {original ?? category} ({entries.length})
       </h2>

@@ -1,11 +1,9 @@
 import React from "react";
 import { GetStaticProps } from "next";
-import Head from "next/head";
 
 import { allArticles } from "contentlayer/generated";
-import OGP from "../components/OGP";
-import Container from "../components/Container";
 import InternalLink from "components/InternalLink";
+import { NextSeo } from "next-seo";
 
 type PathParams = {
   slug: string;
@@ -36,7 +34,7 @@ const getStaticProps: GetStaticProps<PageProps, PathParams> = ({ params }) => {
   return { props: { categories } };
 };
 
-const Categories: React.VFC<PageProps> = ({ categories }) => {
+const Categories: React.FC<PageProps> = ({ categories }) => {
   const rankedCategories = Object.keys(categories).sort((a, b) => {
     if (categories[a] < categories[b]) return 1;
     if (categories[a] > categories[b]) return -1;
@@ -45,10 +43,7 @@ const Categories: React.VFC<PageProps> = ({ categories }) => {
 
   return (
     <>
-      <OGP
-        title="カテゴリー一覧 | なつねこメモ"
-        url="https://www.natsuneko.blog/categories"
-      />
+      <NextSeo title="カテゴリー一覧" />
       <h2 className="mt-2 mb-4 text-2xl font-bold">カテゴリー一覧</h2>
       <ul className="pl-6 list-disc">
         {rankedCategories.map((w) => {
