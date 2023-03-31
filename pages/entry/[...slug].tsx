@@ -103,14 +103,12 @@ const Entry: React.FC<Props> = ({ entry, redirect, slug }) => {
         description={entry.summary}
         url={url}
       />
-      <div className="w-full">
-        <Article
-          title={entry.title}
-          date={entry.date}
-          categories={entry.categories}
-          content={entry.body.code}
-        />
-      </div>
+      <Article
+        title={entry.title}
+        date={entry.date}
+        categories={entry.categories}
+        content={entry.body.code}
+      />
     </>
   );
 };

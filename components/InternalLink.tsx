@@ -1,10 +1,12 @@
 import React from "react";
 import Link from "next/link";
+import { cls } from "lib/cls";
 
 type Props = {
   href: string;
   hasUnderline?: boolean;
   className?: string;
+  prefetch?: boolean;
   children: React.ReactNode;
 };
 
@@ -12,15 +14,19 @@ const InternalLink: React.FC<Props> = ({
   className,
   href,
   children,
+  prefetch,
   hasUnderline,
 }) => {
-  const classNames: string[] = [className ?? "text-season-link"];
-  if (hasUnderline) classNames.push("underline");
-
-  const str = classNames.join(" ");
-
   return (
-    <Link className={str} href={href}>
+    <Link
+      prefetch={prefetch ? undefined : false}
+      className={cls(
+        "text-season-link",
+        className,
+        hasUnderline && "underline"
+      )}
+      href={href}
+    >
       {children}
     </Link>
   );

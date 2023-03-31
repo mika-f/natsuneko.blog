@@ -8,12 +8,7 @@ type Props = {
 
 const Container: React.FC<Props> = ({ children, className }) => {
   return (
-    <div
-      className={cls(
-        "w-full px-8 py-12 rounded-lg bg-season-primary",
-        className
-      )}
-    >
+    <div className={cls("w-full px-8 pt-6 pb-12 rounded-lg", className)}>
       {children}
     </div>
   );

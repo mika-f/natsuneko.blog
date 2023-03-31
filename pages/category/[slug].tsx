@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
-import { GetStaticPaths, GetStaticProps } from "next";
-import Head from "next/head";
-import InternalLink from "next/link";
+import { useRouter } from "next/router";
 
 import { allArticles } from "contentlayer/generated";
 
 import OGP from "../../components/OGP";
 import Container from "../../components/Container";
-import { useRouter } from "next/router";
+import InternalLink from "../../components/InternalLink";
+
+import type { GetStaticPaths, GetStaticProps } from "next";
 
 type PathParams = {
   slug: string;
@@ -111,26 +111,25 @@ const Category: React.VFC<PageProps> = ({ category, entries, redirect }) => {
         title={`カテゴリー: ${original ?? category} | なつねこメモ`}
         url="https://www.natsuneko.blog/categories"
       />
-      <Container>
-        <h2 className="mt-2 mb-4 text-3xl font-bold">
-          カテゴリー: {original ?? category} ({entries.length})
-        </h2>
-        {entries.map((w) => {
-          return (
-            <div key={w.basename} className="mt-2 mb-12">
-              {w.date}
-              <h2 className="mt-1">
-                <InternalLink
-                  href={`/entry/${w.basename}`}
-                  className="text-xl underline"
-                >
-                  {w.title}
-                </InternalLink>
-              </h2>
-            </div>
-          );
-        })}
-      </Container>
+      <h2 className="mt-2 mb-4 text-3xl font-bold">
+        カテゴリー: {original ?? category} ({entries.length})
+      </h2>
+      {entries.map((w) => {
+        return (
+          <div key={w.basename} className="mt-2 mb-12">
+            {w.date}
+            <h2 className="mt-1">
+              <InternalLink
+                href={`/entry/${w.basename}`}
+                className="text-xl"
+                hasUnderline
+              >
+                {w.title}
+              </InternalLink>
+            </h2>
+          </div>
+        );
+      })}
     </>
   );
 };
