@@ -40,7 +40,10 @@ const App = ({ Component, pageProps }: AppProps) => {
       <Layout>
         <Component {...pageProps} />
       </Layout>
-      <Partytown debug={true} forward={["dataLayer.push", "gtag"]} />
+      <Partytown
+        debug={process.env.NODE_ENV === "development"}
+        forward={["dataLayer.push", "gtag"]}
+      />
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-LH1W6QPTN1"
         type="text/partytown"
