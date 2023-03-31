@@ -25,12 +25,8 @@ const Article: React.FC<Props> = ({ title, date, categories, content }) => {
                 : encodeURIComponent(w);
 
             return (
-              <li>
-                <InternalLink
-                  key={w}
-                  href={`/category/${category}`}
-                  hasUnderline
-                >
+              <li key={w}>
+                <InternalLink href={`/category/${category}`} hasUnderline>
                   {w}
                 </InternalLink>
               </li>
