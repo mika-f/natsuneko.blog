@@ -4,7 +4,7 @@ type Props = {
   url: string;
 };
 
-const EmbedLink: React.VFC<Props> = ({ url }) => {
+const EmbedLink: React.FC<Props> = ({ url }) => {
   const ref = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {

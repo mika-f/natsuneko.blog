@@ -1,20 +1,21 @@
 import React from "react";
-import axios from "axios";
-import useSWR from "swr";
+import useSWR from "swr/immutable";
 import ExternalLink from "./ExternalLink";
+
+import { fetcher } from "lib/fetcher";
 
 type Props = {
   url: string;
 };
 
-const EmbedTitleLink: React.VFC<Props> = ({ url }) => {
+const EmbedTitleLink: React.FC<Props> = ({ url }) => {
   const { data, error } = useSWR(
     `https://embedfy.natsuneko.moe/api/title?url=${url}`,
-    axios
+    fetcher
   );
 
   if (data) {
-    return <ExternalLink href={url}>{data.data.title}</ExternalLink>;
+    return <ExternalLink href={url}>{data.title}</ExternalLink>;
   }
 
   return <ExternalLink href={url}>{url}</ExternalLink>;

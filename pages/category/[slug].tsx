@@ -4,7 +4,6 @@ import { useRouter } from "next/router";
 import { allArticles } from "contentlayer/generated";
 
 import { NextSeo } from "next-seo";
-import Container from "../../components/Container";
 import InternalLink from "../../components/InternalLink";
 
 import type { GetStaticPaths, GetStaticProps } from "next";
