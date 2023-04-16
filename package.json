@@ -36,7 +36,7 @@
     "eslint-config-next": "13.3.0",
     "mt-parser": "1.0.0-alpha.6",
     "next-sitemap": "4.0.7",
-    "postcss": "8.4.21",
+    "postcss": "8.4.22",
     "rehype-code-titles": "1.2.0",
     "rehype-mathjax": "4.0.2",
     "rehype-pretty-code": "0.9.4",
