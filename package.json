@@ -51,6 +51,6 @@
     "turndown": "7.1.2",
     "turndown-plugin-gfm": "1.0.2",
     "typescript": "5.0.4",
-    "yargs": "17.7.1"
+    "yargs": "17.7.2"
   }
 }
