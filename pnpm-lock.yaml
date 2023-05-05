@@ -9,7 +9,7 @@ dependencies:
     version: 1.2.1
   contentlayer:
     specifier: ^0.3.2
-    version: 0.3.2(typescript@5.0.4)
+    version: 0.3.2(esbuild@0.17.18)(typescript@5.0.4)
   feed:
     specifier: 4.2.2
     version: 4.2.2
@@ -21,10 +21,10 @@ dependencies:
     version: 4.3.0
   next:
     specifier: 13.3.4
-    version: 13.3.4(react-dom@18.2.0)(react@18.2.0)
+    version: 13.3.4(@opentelemetry/api@1.4.1)(react-dom@18.2.0)(react@18.2.0)
   next-contentlayer:
     specifier: ^0.3.2
-    version: 0.3.2(next@13.3.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.0.4)
+    version: 0.3.2(esbuild@0.17.18)(next@13.3.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.0.4)
   next-seo:
     specifier: 6.0.0
     version: 6.0.0(next@13.3.4)(react-dom@18.2.0)(react@18.2.0)
@@ -49,8 +49,8 @@ devDependencies:
     specifier: 4.3.0
     version: 4.3.0
   '@types/node':
-    specifier: 18.16.4
-    version: 18.16.4
+    specifier: 18.16.5
+    version: 18.16.5
   '@types/react':
     specifier: 18.2.5
     version: 18.2.5
@@ -74,7 +74,7 @@ devDependencies:
     version: 1.0.0-alpha.6
   next-sitemap:
     specifier: 4.0.9
-    version: 4.0.9(next@13.3.4)
+    version: 4.0.9(@next/env@13.3.4)(next@13.3.4)
   postcss:
     specifier: 8.4.23
     version: 8.4.23
@@ -110,7 +110,7 @@ devDependencies:
     version: 3.3.2(ts-node@10.9.1)
   ts-node:
     specifier: 10.9.1
-    version: 10.9.1(@types/node@18.16.4)(typescript@5.0.4)
+    version: 10.9.1(@types/node@18.16.5)(typescript@5.0.4)
   turndown:
     specifier: 7.1.2
     version: 7.1.2
@@ -142,34 +142,37 @@ packages:
     hasBin: true
     dev: false
 
-  /@contentlayer/cli@0.3.2(typescript@5.0.4):
+  /@contentlayer/cli@0.3.2(esbuild@0.17.18)(typescript@5.0.4):
     resolution: {integrity: sha512-KLzB2z3Klbl4bU7VTJ8EaY1d17GCBFtwgvtNAVLOqUJ4LRw46+jT+qBMk8gyy7R1xDNF2H1a/yGYs8t8rlFVmg==}
     dependencies:
-      '@contentlayer/core': 0.3.2(typescript@5.0.4)
+      '@contentlayer/core': 0.3.2(esbuild@0.17.18)(typescript@5.0.4)
       '@contentlayer/utils': 0.3.2(typescript@5.0.4)
-      clipanion: 3.2.0
+      clipanion: 3.2.0(typanion@3.12.1)
       typanion: 3.12.1
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
+      - esbuild
       - markdown-wasm
       - supports-color
       - typescript
     dev: false
 
-  /@contentlayer/client@0.3.2(typescript@5.0.4):
+  /@contentlayer/client@0.3.2(esbuild@0.17.18)(typescript@5.0.4):
     resolution: {integrity: sha512-5m7IFd0Z8qRBAOnAYwWcf/SFe1SmtHmeV1kO4pldEuD8J/5sxKeefdGHLNnH3sxlGfeJhEdDnymJtppg8v0D8w==}
     dependencies:
-      '@contentlayer/core': 0.3.2(typescript@5.0.4)
+      '@contentlayer/core': 0.3.2(esbuild@0.17.18)(typescript@5.0.4)
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
+      - esbuild
       - markdown-wasm
       - supports-color
       - typescript
     dev: false
 
-  /@contentlayer/core@0.3.2(typescript@5.0.4):
+  /@contentlayer/core@0.3.2(esbuild@0.17.18)(typescript@5.0.4):
     resolution: {integrity: sha512-5ZLzS3s4Lp5Tlw+U4kUUK9frYmi8sc970spJSvLSxtOTDHDE7xemGT9HSj0V4DcmIkY9TT7pCmMFRfpEv7IC6Q==}
     peerDependencies:
+      esbuild: 0.17.x
       markdown-wasm: 1.x
     peerDependenciesMeta:
       esbuild:
@@ -196,10 +199,10 @@ packages:
       - typescript
     dev: false
 
-  /@contentlayer/source-files@0.3.2(typescript@5.0.4):
+  /@contentlayer/source-files@0.3.2(esbuild@0.17.18)(typescript@5.0.4):
     resolution: {integrity: sha512-VYUaUbT3Hg3fSEEKpjDdfGEkw4bl4BaLHJWf5sulrkBtjdyNJ3RwUdnsqN3i+bibhcYF4ZvnFme4xtHBuEChmw==}
     dependencies:
-      '@contentlayer/core': 0.3.2(typescript@5.0.4)
+      '@contentlayer/core': 0.3.2(esbuild@0.17.18)(typescript@5.0.4)
       '@contentlayer/utils': 0.3.2(typescript@5.0.4)
       chokidar: 3.5.3
       fast-glob: 3.2.12
@@ -212,19 +215,21 @@ packages:
       zod: 3.21.4
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
+      - esbuild
       - markdown-wasm
       - supports-color
       - typescript
     dev: false
 
-  /@contentlayer/source-remote-files@0.3.2(typescript@5.0.4):
+  /@contentlayer/source-remote-files@0.3.2(esbuild@0.17.18)(typescript@5.0.4):
     resolution: {integrity: sha512-BuABBHemn/UzhARsQh2XH13VUeb5HoRI3NkJeCGEMSnstzI72Dcc6krELwG3cTFYmgb95TV8NuIZKcrz8IsX6A==}
     dependencies:
-      '@contentlayer/core': 0.3.2(typescript@5.0.4)
-      '@contentlayer/source-files': 0.3.2(typescript@5.0.4)
+      '@contentlayer/core': 0.3.2(esbuild@0.17.18)(typescript@5.0.4)
+      '@contentlayer/source-files': 0.3.2(esbuild@0.17.18)(typescript@5.0.4)
       '@contentlayer/utils': 0.3.2(typescript@5.0.4)
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
+      - esbuild
       - markdown-wasm
       - supports-color
       - typescript
@@ -592,7 +597,7 @@ packages:
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
       '@grpc/proto-loader': 0.7.7
-      '@types/node': 18.16.4
+      '@types/node': 18.16.5
     dev: false
 
   /@grpc/proto-loader@0.6.13:
@@ -840,7 +845,6 @@ packages:
   /@opentelemetry/api@1.4.1:
     resolution: {integrity: sha512-O2yRJce1GOc6PAy3QxFM4NzFiWzvScDC1/5ihYBL6BUEVdq0XMWN01sppE+H6bBXbaFYipjwFLEWLg5PaSOThA==}
     engines: {node: '>=8.0.0'}
-    dev: false
 
   /@opentelemetry/context-async-hooks@1.12.0(@opentelemetry/api@1.4.1):
     resolution: {integrity: sha512-PmwAanPNWCyS9JYFzhzVzHgviLhc0UHjOwdth+hp3HgQQ9XZZNE635P8JhAUHZmbghW9/qQFafRWOS4VN9VVnQ==}
@@ -1172,8 +1176,8 @@ packages:
   /@types/ms@0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
 
-  /@types/node@18.16.4:
-    resolution: {integrity: sha512-LUhvPmAKAbgm+p/K11IWszLZVoZDlMF4NRmqbhEzDz/CnCuehPkZXwZbBCKGJsgjnuVejotBwM7B3Scrq4EqDw==}
+  /@types/node@18.16.5:
+    resolution: {integrity: sha512-seOA34WMo9KB+UA78qaJoCO20RJzZGVXQ5Sh6FWu0g/hfT44nKXnej3/tCQl7FL97idFpBhisLYCTB50S0EirA==}
 
   /@types/parse5@6.0.3:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
@@ -1607,8 +1611,10 @@ packages:
   /client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
 
-  /clipanion@3.2.0:
+  /clipanion@3.2.0(typanion@3.12.1):
     resolution: {integrity: sha512-XaPQiJQZKbyaaDbv5yR/cAt/ORfZfENkr4wGQj+Go/Uf/65ofTQBCPirgWFeJctZW24V3mxrFiEnEmqBflrJYA==}
+    peerDependencies:
+      typanion: '*'
     dependencies:
       typanion: 3.12.1
     dev: false
@@ -1683,20 +1689,21 @@ packages:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: true
 
-  /contentlayer@0.3.2(typescript@5.0.4):
+  /contentlayer@0.3.2(esbuild@0.17.18)(typescript@5.0.4):
     resolution: {integrity: sha512-fQN3l/KvUW+nIvXiaShpOCvXX4alNbvfo56vnVxHVm6vKP10bb/IRhjMXPXZzr+5hmCaeep9wMpCAvOKB6NJHA==}
     engines: {node: '>=14.18'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      '@contentlayer/cli': 0.3.2(typescript@5.0.4)
-      '@contentlayer/client': 0.3.2(typescript@5.0.4)
-      '@contentlayer/core': 0.3.2(typescript@5.0.4)
-      '@contentlayer/source-files': 0.3.2(typescript@5.0.4)
-      '@contentlayer/source-remote-files': 0.3.2(typescript@5.0.4)
+      '@contentlayer/cli': 0.3.2(esbuild@0.17.18)(typescript@5.0.4)
+      '@contentlayer/client': 0.3.2(esbuild@0.17.18)(typescript@5.0.4)
+      '@contentlayer/core': 0.3.2(esbuild@0.17.18)(typescript@5.0.4)
+      '@contentlayer/source-files': 0.3.2(esbuild@0.17.18)(typescript@5.0.4)
+      '@contentlayer/source-remote-files': 0.3.2(esbuild@0.17.18)(typescript@5.0.4)
       '@contentlayer/utils': 0.3.2(typescript@5.0.4)
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
+      - esbuild
       - markdown-wasm
       - supports-color
       - typescript
@@ -4018,20 +4025,21 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
-  /next-contentlayer@0.3.2(next@13.3.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.0.4):
+  /next-contentlayer@0.3.2(esbuild@0.17.18)(next@13.3.4)(react-dom@18.2.0)(react@18.2.0)(typescript@5.0.4):
     resolution: {integrity: sha512-pihb/VtBq30eV+WpaWakWVtA1DWKzfXeaL7l/vR4MvrTO8UtZaX9H6wY0oSOqrmy674BRjXiQ03PbEOE5D6/iA==}
     peerDependencies:
       next: ^12 || ^13
       react: '*'
       react-dom: '*'
     dependencies:
-      '@contentlayer/core': 0.3.2(typescript@5.0.4)
+      '@contentlayer/core': 0.3.2(esbuild@0.17.18)(typescript@5.0.4)
       '@contentlayer/utils': 0.3.2(typescript@5.0.4)
-      next: 13.3.4(react-dom@18.2.0)(react@18.2.0)
+      next: 13.3.4(@opentelemetry/api@1.4.1)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
       - '@effect-ts/otel-node'
+      - esbuild
       - markdown-wasm
       - supports-color
       - typescript
@@ -4044,12 +4052,12 @@ packages:
       react: '>=16.0.0'
       react-dom: '>=16.0.0'
     dependencies:
-      next: 13.3.4(react-dom@18.2.0)(react@18.2.0)
+      next: 13.3.4(@opentelemetry/api@1.4.1)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /next-sitemap@4.0.9(next@13.3.4):
+  /next-sitemap@4.0.9(@next/env@13.3.4)(next@13.3.4):
     resolution: {integrity: sha512-8pbcEe4vrmgGEc3beVbrSqd8mTQ9lCsGxP+AOlArrGmeLkKD4TbSR41R2unQHHSTkBG8cQ/7gjKkdLBlzwtu6g==}
     engines: {node: '>=14.18'}
     hasBin: true
@@ -4058,11 +4066,12 @@ packages:
       next: '*'
     dependencies:
       '@corex/deepmerge': 4.0.43
+      '@next/env': 13.3.4
       minimist: 1.2.8
-      next: 13.3.4(react-dom@18.2.0)(react@18.2.0)
+      next: 13.3.4(@opentelemetry/api@1.4.1)(react-dom@18.2.0)(react@18.2.0)
     dev: true
 
-  /next@13.3.4(react-dom@18.2.0)(react@18.2.0):
+  /next@13.3.4(@opentelemetry/api@1.4.1)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-sod7HeokBSvH5QV0KB+pXeLfcXUlLrGnVUXxHpmhilQ+nQYT3Im2O8DswD5e4uqbR8Pvdu9pcWgb1CbXZQZlmQ==}
     engines: {node: '>=16.8.0'}
     hasBin: true
@@ -4084,6 +4093,7 @@ packages:
         optional: true
     dependencies:
       '@next/env': 13.3.4
+      '@opentelemetry/api': 1.4.1
       '@swc/helpers': 0.5.1
       busboy: 1.6.0
       caniuse-lite: 1.0.30001481
@@ -4390,7 +4400,7 @@ packages:
     dependencies:
       lilconfig: 2.1.0
       postcss: 8.4.23
-      ts-node: 10.9.1(@types/node@18.16.4)(typescript@5.0.4)
+      ts-node: 10.9.1(@types/node@18.16.5)(typescript@5.0.4)
       yaml: 2.2.2
     dev: true
 
@@ -4470,7 +4480,7 @@ packages:
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
       '@types/long': 4.0.2
-      '@types/node': 18.16.4
+      '@types/node': 18.16.5
       long: 4.0.0
     dev: false
 
@@ -4489,7 +4499,7 @@ packages:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 18.16.4
+      '@types/node': 18.16.5
       long: 5.2.3
     dev: false
 
@@ -5156,7 +5166,7 @@ packages:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
     dev: true
 
-  /ts-node@10.9.1(@types/node@18.16.4)(typescript@5.0.4):
+  /ts-node@10.9.1(@types/node@18.16.5)(typescript@5.0.4):
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -5175,7 +5185,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.3
-      '@types/node': 18.16.4
+      '@types/node': 18.16.5
       acorn: 8.8.2
       acorn-walk: 8.2.0
       arg: 4.1.3
