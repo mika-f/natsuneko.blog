@@ -3,11 +3,12 @@
   "private": true,
   "scripts": {
     "dev": "npm run partytown && next dev",
-    "build": "npm run partytown && next build",
+    "build": "npm run partytown && contentlayer build && next build",
     "postbuild": "next-sitemap --config sitemap.config.js",
     "start": "next start",
     "lint": "next lint",
-    "partytown": "partytown copylib public/~partytown"
+    "partytown": "partytown copylib public/~partytown",
+    "contentlayer": "contentlayer"
   },
   "dependencies": {
     "@builder.io/partytown": "0.8.0",
