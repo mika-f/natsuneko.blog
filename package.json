@@ -41,7 +41,7 @@
     "rehype-mathjax": "4.0.2",
     "rehype-pretty-code": "0.9.5",
     "rehype-raw": "6.1.1",
-    "remark": "14.0.2",
+    "remark": "14.0.3",
     "remark-gfm": "3.0.1",
     "remark-math": "5.1.1",
     "shiki": "0.14.2",
