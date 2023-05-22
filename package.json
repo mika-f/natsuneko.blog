@@ -32,7 +32,7 @@
     "@types/turndown": "5.0.1",
     "@types/yargs": "17.0.24",
     "autoprefixer": "10.4.14",
-    "eslint": "8.40.0",
+    "eslint": "8.41.0",
     "eslint-config-next": "13.3.4",
     "mt-parser": "1.0.0-alpha.6",
     "next-sitemap": "4.1.3",
