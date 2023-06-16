@@ -21,8 +21,8 @@ dependencies:
     specifier: 4.0.3
     version: 4.0.3
   marked:
-    specifier: 5.0.5
-    version: 5.0.5
+    specifier: 5.1.0
+    version: 5.1.0
   next:
     specifier: 13.4.6
     version: 13.4.6(@opentelemetry/api@1.4.1)(react-dom@18.2.0)(react@18.2.0)
@@ -3424,8 +3424,8 @@ packages:
     resolution: {integrity: sha512-Z1NL3Tb1M9wH4XESsCDEksWoKTdlUafKc4pt0GRwjUyXaCFZ+dc3g2erqB6zm3szA2IUSi7VnPI+o/9jnxh9hw==}
     dev: true
 
-  /marked@5.0.5:
-    resolution: {integrity: sha512-auTmKJTBwZM/GLVFOhmkY7pL8v/0DxiDaXRC2kEyajcNJ0XXn9NphLD0106dbWrbPwcyD4Y0Dus16OkCzUMkfg==}
+  /marked@5.1.0:
+    resolution: {integrity: sha512-z3/nBe7aTI8JDszlYLk7dDVNpngjw0o1ZJtrA9kIfkkHcIF+xH7mO23aISl4WxP83elU+MFROgahqdpd05lMEQ==}
     engines: {node: '>= 18'}
     hasBin: true
     dev: false
