@@ -14,7 +14,6 @@ type PathParams = {
 
 type Props = {
   entry: Entry;
-  redirect: Redirect;
   slug: string;
 };
 
@@ -59,41 +58,13 @@ const getStaticProps: GetStaticProps<Props, PathParams> = async ({
     null;
 
   return {
-    props: { entry, slug, redirect },
+    props: redirect ? null : { entry, slug },
+    redirect: redirect ? { destination: redirect.to, permanent: true } : null,
   };
 };
 
-const Entry: React.FC<Props> = ({ entry, redirect, slug }) => {
-  const url = redirect
-    ? `https://www.natsuneko.blog/entry/${redirect.to}`
-    : `https://www.natsuneko.blog/entry/${entry.date}/${slug}`;
-  const router = useRouter();
-
-  useEffect(() => {
-    if (redirect) router.replace(redirect.to);
-  }, [redirect, router]);
-
-  if (redirect) {
-    return (
-      <div className="w-full">
-        <NextSeo
-          title="Redirecting... "
-          description="redirect"
-          canonical={url}
-        />
-
-        <div
-          className="flex items-center justify-center w-full"
-          style={{ height: "calc(100vh - 65px - 212px)" }}
-        >
-          <div className="flex items-center justify-center h-16 pr-4 mr-4 border-r">
-            <div className="text-4xl">301</div>
-          </div>
-          <div>This page moved permanently</div>
-        </div>
-      </div>
-    );
-  }
+const Entry: React.FC<Props> = ({ entry, slug }) => {
+  const url = `https://www.natsuneko.blog/entry/${entry.date}/${slug}`;
 
   return (
     <>
