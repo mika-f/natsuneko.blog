@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/router";
 
-import { allArticles, allRedirects } from "contentlayer/generated";
+import { allArticles } from "contentlayer/generated";
 import type { Article as Entry, Redirect } from "contentlayer/generated";
 
 import Article from "../../components/Article";
@@ -28,16 +28,6 @@ const getStaticPaths: GetStaticPaths<PathParams> = async () => {
     };
   });
 
-  allRedirects[0].redirects.forEach((w) => {
-    const [year, month, day, slug] = w.from.split("/");
-
-    paths.push({
-      params: {
-        slug: [year, month, day, slug] as [string, string, string, string],
-      },
-    });
-  });
-
   return {
     paths,
     fallback: false,
@@ -49,17 +39,13 @@ const getStaticProps: GetStaticProps<Props, PathParams> = async ({
   params,
 }) => {
   const [year, month, day, slug] = params!.slug;
-  const redirect =
-    allRedirects[0].redirects.find(
-      (w) => w.from === `${year}/${month}/${day}/${slug}`
-    ) ?? null;
+
   const entry =
     allArticles.find((w) => w.basename === `${year}/${month}/${day}/${slug}`) ??
     null;
 
   return {
-    props: redirect ? null : { entry, slug },
-    redirect: redirect ? { destination: redirect.to, permanent: true } : null,
+    props: { entry, slug },
   };
 };
 
