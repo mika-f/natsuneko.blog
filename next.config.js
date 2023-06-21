@@ -1,5 +1,6 @@
 const path = require("path");
 const { withContentlayer } = require("next-contentlayer");
+const { redirects } = require("./contents/redirects.json");
 
 module.exports = withContentlayer({
   reactStrictMode: true,
@@ -12,5 +13,12 @@ module.exports = withContentlayer({
     config.infrastructureLogging = { level: "error" };
 
     return config;
+  },
+  async redirects() {
+    return redirects.map((redirect) => ({
+      source: `/entry/${encodeURI(redirect.from).replace(/\+/g, "%2B")}`,
+      destination: `/entry/${encodeURI(redirect.to)}`,
+      permanent: true,
+    }));
   },
 });
