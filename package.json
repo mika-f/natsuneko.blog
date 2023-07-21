@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@types/marked": "5.0.1",
-    "@types/node": "18.16.19",
+    "@types/node": "18.16.20",
     "@types/react": "18.2.15",
     "@types/turndown": "5.0.1",
     "@types/yargs": "17.0.24",
