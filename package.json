@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@builder.io/partytown": "0.8.0",
-    "clsx": "1.2.1",
+    "clsx": "2.0.0",
     "contentlayer": "0.3.4",
     "feed": "4.2.2",
     "gray-matter": "4.0.3",
