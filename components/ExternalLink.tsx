@@ -16,6 +16,8 @@ const ExternalLink: React.FC<Props> = ({
   const classNames: string[] = [className ?? "text-season-link"];
   if (hasUnderline) classNames.push("underline");
 
+  classNames.push("break-words");
+
   const str = classNames.join(" ");
 
   return (
