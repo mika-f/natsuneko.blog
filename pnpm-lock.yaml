@@ -59,8 +59,8 @@ devDependencies:
     specifier: 18.2.21
     version: 18.2.21
   '@types/turndown':
-    specifier: 5.0.1
-    version: 5.0.1
+    specifier: 5.0.2
+    version: 5.0.2
   '@types/yargs':
     specifier: 17.0.24
     version: 17.0.24
@@ -1203,8 +1203,8 @@ packages:
     resolution: {integrity: sha512-5cJ8CB4yAx7BH1oMvdU0Jh9lrEXyPkar6F9G/ERswkCuvP4KQZfZkSjcMbAICCpQTN4OuZn8tz0HiKv9TGZgrQ==}
     dev: true
 
-  /@types/turndown@5.0.1:
-    resolution: {integrity: sha512-N8Ad4e3oJxh9n9BiZx9cbe/0M3kqDpOTm2wzj13wdDUxDPjfjloWIJaquZzWE1cYTAHpjOH3rcTnXQdpEfS/SQ==}
+  /@types/turndown@5.0.2:
+    resolution: {integrity: sha512-ghbjIyvMSQn/UGEuQJD6C4DfbokyYqGRhNAetWH02qnuRfvRZz9qTOG9e0RPkVqGsjv+YsjF3gRp7yFKvc/1PA==}
     dev: true
 
   /@types/unist@2.0.7:

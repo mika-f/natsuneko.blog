@@ -29,7 +29,7 @@
     "@types/marked": "5.0.1",
     "@types/node": "18.17.15",
     "@types/react": "18.2.21",
-    "@types/turndown": "5.0.1",
+    "@types/turndown": "5.0.2",
     "@types/yargs": "17.0.24",
     "autoprefixer": "10.4.15",
     "eslint": "8.49.0",
