@@ -62,7 +62,7 @@ const About: React.FC = () => {
           </li>
           <li>
             GitHub:{" "}
-            <ExternalLink href="https://twitter.com/mika-f" hasUnderline>
+            <ExternalLink href="https://github.com/mika-f" hasUnderline>
               @mika-f
             </ExternalLink>
           </li>
