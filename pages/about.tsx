@@ -50,6 +50,30 @@ const About: React.FC = () => {
           &nbsp;でまるごとブロックです。
         </p>
       </section>
+      <section className="mt-8 mb-4">
+        <h3 className="my-2 text-2xl font-bold">その他</h3>
+        <p>主要 SNS</p>
+        <ul className="my-2">
+          <li>
+            Twitter:{" "}
+            <ExternalLink href="https://twitter.com/6jz" hasUnderline>
+              @6jz
+            </ExternalLink>
+          </li>
+          <li>
+            GitHub:{" "}
+            <ExternalLink href="https://twitter.com/mika-f" hasUnderline>
+              @mika-f
+            </ExternalLink>
+          </li>
+        </ul>
+        <p>それ以外の各種 SNS の類いはこちらにまとめてあります。</p>
+        <p>
+          <ExternalLink href="https://bento.me/natsuneko" hasUnderline>
+            bento.me/natsuneko
+          </ExternalLink>
+        </p>
+      </section>
     </>
   );
 };
