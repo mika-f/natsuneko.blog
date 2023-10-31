@@ -5,12 +5,12 @@ import { marked } from "marked";
 import { allArticles } from "contentlayer/generated";
 
 const generateRssFeed = async (): Promise<void> => {
-  const baseUrl = "https://natsuneko.blog";
+  const baseUrl = "https://www.natsuneko.blog";
   const date = new Date();
   const author = {
     name: "Natsuneko",
     email: "me@natsuneko.cat",
-    link: "https://natsuneko.cat",
+    link: "https://www.natsuneko.cat",
   };
 
   const feed = new RssFeed({
