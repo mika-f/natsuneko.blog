@@ -16,6 +16,18 @@ const App = ({ Component, pageProps }: AppProps) => {
     <>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link
+          rel="alternate"
+          type="application/atom+xml"
+          title="Natsuneko Memo Atom Feed"
+          href="https://www.natsuneko.blog/rss/atom.xml"
+        />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="Natsuneko Memo RSS Feed"
+          href="https://www.natsuneko.blog/rss/feed.xml"
+        />
       </Head>
       <DefaultSeo
         titleTemplate="%s | なつねこメモ"
