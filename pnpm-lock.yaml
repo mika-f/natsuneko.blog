@@ -107,8 +107,8 @@ devDependencies:
     specifier: 0.14.5
     version: 0.14.5
   strip-markdown:
-    specifier: 5.0.1
-    version: 5.0.1
+    specifier: 6.0.0
+    version: 6.0.0
   tailwindcss:
     specifier: 3.3.5
     version: 3.3.5(ts-node@10.9.1)
@@ -1143,6 +1143,12 @@ packages:
     resolution: {integrity: sha512-DT+iNIRNX884cx0/Q1ja7NyUPpZuv0KPyL5rGNxm1WC1OtHstl7n4Jb7nk+xacNShQMbczJjt8uFzznpp6kYBg==}
     dependencies:
       '@types/unist': 2.0.8
+
+  /@types/mdast@4.0.2:
+    resolution: {integrity: sha512-tYR83EignvhYO9iU3kDg8V28M0jqyh9zzp5GV+EO+AYnyUl3P5ltkTeJuTiFZQFz670FSb3EwT/6LQdX+UdKfw==}
+    dependencies:
+      '@types/unist': 2.0.8
+    dev: true
 
   /@types/mdx@2.0.7:
     resolution: {integrity: sha512-BG4tyr+4amr3WsSEmHn/fXPqaCba/AYZ7dsaQTiavihQunHSIxk+uAtqsjvicNpyHN6cm+B9RVrUOtW9VzIKHw==}
@@ -4959,12 +4965,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /strip-markdown@5.0.1:
-    resolution: {integrity: sha512-IvoKZrXtWAnlEjRfDlT3yRtGRvpX3RSg+nwAHONmshpSCoxgjZV2xX9ZYvEmwupmYobJtws9oDdTwLUu/5PoMQ==}
+  /strip-markdown@6.0.0:
+    resolution: {integrity: sha512-mSa8FtUoX3ExJYDkjPUTC14xaBAn4Ik5GPQD45G5E2egAmeV3kHgVSTfIoSDggbF6Pk9stahVgqsLCNExv6jHw==}
     dependencies:
-      '@types/mdast': 3.0.12
-      '@types/unist': 2.0.8
-      unified: 10.1.2
+      '@types/mdast': 4.0.2
     dev: true
 
   /style-to-object@0.4.2:
