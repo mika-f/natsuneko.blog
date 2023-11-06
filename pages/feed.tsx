@@ -45,6 +45,7 @@ const generateRssFeed = async (): Promise<void> => {
   }
 
   await writeFile("./public/rss/feed.xml", feed.rss2());
+  await writeFile("./public/rss/rss.xml", feed.rss2());
   await writeFile("./public/rss/feed.json", feed.json1());
   await writeFile("./public/rss/atom.xml", feed.atom1());
 };
