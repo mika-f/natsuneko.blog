@@ -14,11 +14,11 @@
   "packageRules": [
     {
       "matchUpdateTypes": ["patch", "pin", "digest"],
-      "automerge": true
+      "automerge": false
     },
     {
       "matchDepTypes": ["devDependencies"],
-      "automerge": true
+      "automerge": false
     },
     {
       "groupName": "contentlayer",
