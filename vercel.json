@@ -8,6 +8,17 @@
       "source": "/rss/atom.xml",
       "destination": "https://tech.natsuneko.blog/feed"
     },
-    { "source": "/:path*", "destination": "https://tech.natsuneko.blog/:path*" }
+    {
+      "source": "/category/:path*",
+      "destination": "https://tech.natsuneko.blog/archive/category/:path*"
+    },
+    {
+      "source": "/entry/:path*",
+      "destination": "https://tech.natsuneko.blog/entry/:path*"
+    },
+    {
+      "source": "/",
+      "destination": "https://tech.natsuneko.blog"
+    }
   ]
 }
