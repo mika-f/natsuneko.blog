@@ -1,0 +1,13 @@
+{
+  "redirects": [
+    {
+      "source": "/rss/feed.xml",
+      "destination": "https://tech.natsuneko.blog/rss"
+    },
+    {
+      "source": "/rss/atom.xml",
+      "destination": "https://tech.natsuneko.blog/feed"
+    },
+    { "source": "/:path*", "destination": "https://tech.natsuneko.blog/:path*" }
+  ]
+}
