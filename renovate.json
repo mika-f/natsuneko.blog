@@ -5,6 +5,7 @@
     ":maintainLockFilesWeekly",
     ":timezone(Asia/Tokyo)"
   ],
+  "enabled": false,
   "major": {
     "stabilityDays": 7
   },
